@@ -1,0 +1,15 @@
+*.sty
+*.cls
+*.bst
+
+*.pdf
+*.bbl
+*.blg
+*.aux
+*.bst
+*.log
+
+*.eps
+*.zip
+*.cfg
+document.bib
