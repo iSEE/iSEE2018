@@ -44,8 +44,8 @@ heatMap <- DataFrame(FeatName=I(list(c("Fam19a1", "Cacna2d3", "Cux2", "Rorb", "P
                      ColData=I(list(c("driver_1_s"))))
 rowStat <- DataFrame(Selected="Cux2", Search="homeobox 2")
 
-init <- data.frame(Name=c("Reduced dimension plot 1", "Column data plot 1", "Heat map 1", 
-                          "Row statistics table 1", "Feature expression plot 1"),
+init <- data.frame(Name=c("Reduced dimension plot 1", "Column data plot 1", "Feature expression plot 1",
+                          "Row statistics table 1", "Heat map 1"),
                    Width=c(4,4,4,8,4))
 
 library(iSEE)

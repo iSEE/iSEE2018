@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="297mm"
@@ -101,8 +102,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="476.24563"
-     inkscape:cy="818.17437"
+     inkscape:cx="678.29134"
+     inkscape:cy="526.57856"
      inkscape:document-units="px"
      inkscape:current-layer="g9637"
      showgrid="false"
@@ -220,19 +221,27 @@
            id="tspan8775"
            y="455.36456"
            x="540.36664"
-           sodipodi:role="line">       A       protein </tspan><tspan
+           sodipodi:role="line"><tspan
+   style="font-style:italic"
+   id="tspan4770">       U</tspan>       protein </tspan><tspan
            id="tspan8759"
            y="469.3772"
            x="540.36664"
-           sodipodi:role="line">       B       protein</tspan><tspan
+           sodipodi:role="line"><tspan
+   style="font-style:italic"
+   id="tspan4762">       X</tspan>       protein</tspan><tspan
            id="tspan8761"
            y="483.38986"
            x="540.36664"
-           sodipodi:role="line">       C       ncRNA</tspan><tspan
+           sodipodi:role="line"><tspan
+   style="font-style:italic"
+   id="tspan4764">       Y</tspan>       ncRNA</tspan><tspan
            id="tspan8763"
            y="497.40253"
            x="540.36664"
-           sodipodi:role="line">       D       protein</tspan><tspan
+           sodipodi:role="line"><tspan
+   style="font-style:italic"
+   id="tspan4766">       Z</tspan>       protein</tspan><tspan
            id="tspan8765"
            y="511.41516"
            x="540.36664"
@@ -243,6 +252,123 @@
          id="path8799"
          d="m 532.14286,445.43363 112.76786,0"
          style="fill:none;fill-rule:evenodd;stroke:#6b6d77;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <image
+         sodipodi:absref="/home/cri.camres.org/lun01/AaronDocs/Research/bioconductor/iSEE/writeup/manuscript/pics/screenshot.png"
+         xlink:href="screenshot.png"
+         width="410.35931"
+         height="364.09659"
+         preserveAspectRatio="none"
+         id="image4727"
+         x="71.77005"
+         y="428.13199" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:18.44416809px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="41.644058"
+         y="442.36221"
+         id="text4730"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4732"
+           x="41.644058"
+           y="442.36221"
+           style="font-weight:bold">A</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:18.44416809px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="501.4342"
+         y="442.65659"
+         id="text4730-3"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4732-6"
+           x="501.4342"
+           y="442.65659"
+           style="font-weight:bold">B</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:14.06403255px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="59.697346"
+         y="465.00903"
+         id="text4772"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4774"
+           x="59.697346"
+           y="465.00903"
+           style="font-size:10px">(i)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:14.06403255px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="54.267014"
+         y="532.3241"
+         id="text4772-7"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4774-5"
+           x="54.267014"
+           y="532.3241"
+           style="font-size:11.25px">(ii)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:14.06403255px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="222.9716"
+         y="563.13373"
+         id="text4772-7-3"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4774-5-5"
+           x="222.9716"
+           y="563.13373"
+           style="font-size:11.25px">(iii)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:14.06403255px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="341.1825"
+         y="563.24469"
+         id="text4772-7-3-6"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4774-5-5-2"
+           x="341.1825"
+           y="563.24469"
+           style="font-size:11.25px">(iv)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:14.06403255px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="460.24158"
+         y="562.22723"
+         id="text4772-7-3-6-9"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4774-5-5-2-1"
+           x="460.24158"
+           y="562.22723"
+           style="font-size:11.25px">(v)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:14.06403255px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="123.91183"
+         y="784.64697"
+         id="text4772-7-3-6-9-2"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4774-5-5-2-1-7"
+           x="123.91183"
+           y="784.64697"
+           style="font-size:11.25px">(vi)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:14.06403255px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="455.7193"
+         y="784.64697"
+         id="text4772-7-3-6-9-2-0"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4774-5-5-2-1-7-9"
+           x="455.7193"
+           y="784.64697"
+           style="font-size:11.25px">(vii)</tspan></text>
     </g>
     <g
        id="g10255"
@@ -511,7 +637,7 @@
            y="347.61841"
            x="862.66742"
            id="tspan8570-1-0-0"
-           sodipodi:role="line">B</tspan></text>
+           sodipodi:role="line">X</tspan></text>
       <path
          inkscape:connector-curvature="0"
          id="path9000"
@@ -711,9 +837,11 @@
            y="661.84229"
            x="-770.09821"
            id="tspan8570"
-           sodipodi:role="line">B <tspan
-   id="tspan8915"
-   style="font-style:normal">expression</tspan></tspan></text>
+           sodipodi:role="line"><tspan
+             id="tspan8915"
+             style="font-style:normal"><tspan
+   style="font-style:italic"
+   id="tspan4768">X</tspan> expression</tspan></tspan></text>
       <path
          sodipodi:nodetypes="cccccccccc"
          inkscape:connector-curvature="0"
