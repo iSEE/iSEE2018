@@ -87,7 +87,8 @@ Users can supply their own colour mappings to iSEE, to control how colour scales
 Row statistics tables can be augmented with dynamic annotation based on the selected row, linking to online resources such as Ensembl or Entrez. % do we need to cite them? at least ENSEMBL has updated citable papers
 For large datasets, points can be downsampled in a density-dependent manner to accelerate rendering of the plots, improving the responsiveness of the interface without compromising the fidelity of the visualization. 
 After analyses are completed, users can deploy iSEE on a server with a bespoke step-by-step ``tour'' of their dataset, guiding the audience through an examination of the salient features in the data.
-iSEE also memorizes the exact R code that was used to generate every plot. 
+iSEE also automatically memorizes the exact R code that was used to generate every plot and the existing links, 
+enhancing the proposal of \citep{marini2016interrepro}, where a template report was able to capture the live status of the web application after user interaction.
 This allows users to easily reproduce the results of any exploratory analysis, simply by copying the code reported by iSEE into their own analysis scripts. 
 
 \section{Conclusion}
