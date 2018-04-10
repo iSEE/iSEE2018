@@ -49,6 +49,7 @@ app <- iSEE(bcrxl, tour = tour_steps,
             redDimMax = 0, colDataMax = 0,
             featExprMax = nrow(fd), 
             rowStatMax = 0, rowDataMax = 0, heatMapMax = 0,
-            initialPanels = initialPanels)
+            initialPanels = initialPanels,
+            appTitle = "CyTOF data tour")
 
 shiny::runApp(app)
