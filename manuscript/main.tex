@@ -77,7 +77,7 @@ By accepting a SummarizedExperiment object, iSEE immediately offers interactive 
 %In particular, we leverage off the state-of-the-art allowing us to avoid re-implementing them in iSEE (as is commonly done in other standalone visualization tools).
 
 A key feature of iSEE is the ability to dynamically transmit information between panels (Fig.~\ref{fig:iSEE}B).
-Users can define arbitrary links between ``transmitting'' and ``receiving'' plots, whereby selection of points on the transmitting plot will highlight the corresponding points in the receiving plot.
+Users can define arbitrary links between ``transmitting'' and ``receiving'' panels, whereby selections in transmitting tables and plots highlight the corresponding objects in receiving panels.
 This facilitates exploration of the relationships between different aspects of the data -- for example, users can easily determine co-expression patterns of genes in a particular region of a reduced dimensionality embedding, by transmitting information from the reduced dimension plot to one or more feature expression plots.
 The linking paradigm extends to multiple plots whereby a plot can transmit to multiple receivers, or a receiving plot can itself transmit to another plot.
 This allows users to mimic the arbitrarily complex gating strategies often found in analyses of flow cytometry data \citep{finak2014opencyto}, with the advantage of being extensible to any (meta)data present in a SummarizedExperiment object.
