@@ -77,7 +77,7 @@ By accepting a SummarizedExperiment object, iSEE immediately offers interactive 
 %In particular, we leverage off the state-of-the-art allowing us to avoid re-implementing them in iSEE (as is commonly done in other standalone visualization tools).
 
 A key feature of iSEE is the ability to dynamically transmit information between panels (Fig.~\ref{fig:iSEE}B).
-Users can define arbitrary links between ``transmitting'' and ``receiving'' panels, whereby selections in transmitting tables and plots highlight the corresponding objects in receiving panels.
+Users can define arbitrary links between ``transmitting'' and ``receiving'' panels, whereby selections in transmitting tables and plots highlight the corresponding data points in receiving panels.
 This facilitates exploration of the relationships between different aspects of the data -- for example, users can easily determine co-expression patterns of genes in a particular region of a reduced dimensionality embedding, by transmitting information from the reduced dimension plot to one or more feature expression plots.
 The linking paradigm extends to multiple plots whereby a plot can transmit to multiple receivers, or a receiving plot can itself transmit to another plot.
 This allows users to mimic the arbitrarily complex gating strategies often found in analyses of flow cytometry data \citep{finak2014opencyto}, with the advantage of being extensible to any (meta)data present in a SummarizedExperiment object.
@@ -97,8 +97,8 @@ iSEE provides a general interactive interface for visual exploration of a divers
 We provide a number of demonstrations at https://github.com/LTLA/iSEE2018, using iSEE to explore the TCGA RNA-seq collection \citep{piccolo2015TCGA}, the 68,000 PBMC single-cell RNA sequencing dataset from 10X Genomics \citep{zheng2017massively} and a published mass cytometry dataset consisting of over 170,000 cells (CITE?).
 
 \section*{Acknowledgements}
-We thank the organizers and participants of the European Bioconductor Meeting 2017, where the idea for this package was first conceived.
-We also thank members of the Bioconductor community for their helpful suggestions.
+We thank organizers and participants at the European Bioconductor Meeting 2017, where the idea for this package was first conceived.
+We also thank members of the Bioconductor community for helpful suggestions.
 \vspace*{-12pt}
 
 \section*{Funding}
