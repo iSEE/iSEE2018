@@ -9,7 +9,7 @@ element;intro
 #colDataPlot1_LegendPosition;<p align="left">Lastly, we also moved the legend to the right of the plotting panel (the default is 'Bottom').</p>
 #colDataPlot1_PanelGeneralInfo;<p align="left">Conveniently, the count and proportion of samples selected is shown whenever an active selection is detected.</p>
 #colDataPlot1_PanelLinkInfo;<p align="left">Furthermore, any incoming or outgoing selection link with another panel is reported here.</p><p align="left">In this example, the panel is sending its point selection to two other panels that we will examine in a moment.</p>
-#redDimPlot1;<p align="left"><strong>Reduced dimension plot</strong> panels provide a convenient view of the data in any precomputed reduced dimensions, such as <em>t</em>-SNE.</p><p align="left">Conveniently, any sample metadata or feature expression value may be overlaid as colors onto the data points.</p>
+#redDimPlot1;<p align="left"><strong>Reduced dimension plot</strong> panels provide an overview of the data in any precomputed reduced dimensions, such as <em>t</em>-SNE.</p><p align="left">Conveniently, any sample metadata or feature expression value may be overlaid as colors onto the data points.</p>
 #redDimPlot1_ColorBy;<p align="left">Here, we use color to highlight again the the distribution of each <strong>cancer type</strong>.</p>
 #redDimPlot1_PanelLinkInfo;<p align="left">Furthermore, we emphasise the breast cancer tumor samples selected in the <strong>Column data plot</strong> panel.</p>
 #redDimPlot1_SelectEffect;<p align="left">The point selection is applied with a <strong>transparency</strong> effect, that reduces the visibility of unselected data points to <strong>10%</strong>, by default.</p>
