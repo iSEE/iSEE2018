@@ -1,7 +1,7 @@
 
 # User inputs ----
 
-tour_steps <- "demo_TCGA.txt"
+tour_steps <- "tcga_tour.txt"
 stopifnot(file.exists(tour_steps))
 
 # Libraries ----
