@@ -9,9 +9,11 @@ This repository contains the code required to construct the tours described in t
 ## TCGA
 
 This tour is launched by the `tcga_app.R` script.
+The only pre-requisite to run this script is that the current working directory is set to the `tours/` folder.
+
 The script fetches the TCGA data set from the Bioconductor [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) in the form of an `ExpressionSet`, and performs a small number of preprocessing steps (e.g., PCA, _t_-SNE) before launching the app and the tour.
 
-**Note:** the first time that the script is run, it may take a few extra minutes, as it downloads and caches a copy of the data set if you haven't one already. Subsequent runs of the script will launch the tour significantly faster, as they will use the locally cached data set. See the documentation of the [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) for further details.
+**Note:** the first time that the script is run, it may take a few extra minutes, as it downloads and caches a copy of the data set if you haven't one already. Subsequent runs of the script will launch the tour significantly faster, as they will use the locally cached data set. Refer to the documentation of the [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) for further details.
 
 ## PBMC 4K
 
