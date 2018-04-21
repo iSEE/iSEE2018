@@ -2,7 +2,16 @@
 
 This repository contains the code required to construct the tours described in the _iSEE_ paper by Rue-Albrecht _et al._
 
+**Note:** these tours can be resumed from within their respective iSEE application instance, using the _question mark_ icon in the top-right corner of the _Shiny_ application.
+
 # Setting up the tours
+
+## TCGA
+
+This tour is launched by the `tcga_app.R` script.
+The script fetches the TCGA data set from the Bioconductor [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) in the form of an `ExpressionSet`, and performs a small number of preprocessing steps (e.g., PCA, _t_-SNE) before launching the app and the tour.
+
+**Note:** the first time that the script is run, it may take a few extra minutes, as it downloads and caches a copy of the data set if you haven't one already. Subsequent runs of the script will launch the tour significantly faster, as they will use the locally cached data set. See the documentation of the [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) for further details.
 
 ## PBMC 4K
 
