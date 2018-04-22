@@ -24,3 +24,7 @@ This can be achieved by following these steps:
 2. Run the [analysis script](https://github.com/MarioniLab/EmptyDrops2017/tree/master/analysis/pbmc4k/analysis.Rmd).
 Modify the `fname` variable according to the path to the unpacked PBMC data files.
 3. Move the generated `sce.rds` object into `tours/` and run `pbmc4k_app.R`.
+
+## cyTOF
+
+This tour is launched by the `cytof_app.R` script. The only pre-requisite is that the current working directory is set to the `tours/` folder. The script downloads a preprocesed version of the data set from [Bodenmiller et al (2012)](https://www.nature.com/articles/nbt.2317). See the [`HDCytoData`](http://bioconductor.org/packages/HDCytoData/) package for more information about how the data was processed. 
