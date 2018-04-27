@@ -12,6 +12,7 @@
 
 \documentclass[10pt,a4paper,twocolumn]{article}
 \usepackage{f1000_styles}
+\usepackage{url}
 
 %% Default: numerical citations
 % \usepackage[numbers]{natbib}
@@ -55,7 +56,7 @@ Here, we present the iSEE (Interactive SummarizedExperiment Explorer) software p
 iSEE is directly compatible with many existing R/Bioconductor packages for analyzing high-throughput biological data,
 and provides useful features such as simultaneous examination of multiple data aspects, dynamic linking between plots and code tracking for reproducibility.
 We demonstrate the utility and flexibility of iSEE by applying it to explore a range of real transcriptomics and proteomics datasets.\\
-\textbf{Availability:} iSEE is publicly available as an R package from the open-source Bioconductor project (https://bioconductor.org/packages/iSEE).\\
+\textbf{Availability:} iSEE is publicly available as an R package from the open-source Bioconductor project (\url{https://bioconductor.org/packages/iSEE}).\\
 \textbf{Contact:} aaron.lun@cruk.cam.ac.uk\\
 \textbf{Supplementary information:} Supplementary data are available online.
 
@@ -179,13 +180,13 @@ After analyses are completed, users can deploy iSEE on a server with a bespoke s
 This normally requires the setup of a Shiny Server, % TODO: FM, do we want to provide some basic instructions on how to do it?, 
 as well as the preparation of the dataset at hand in form of a SummarizedExperiment - which many workflows available in Bioconductor adopt as main representation.
 Tours can be provided to the iSEE function in the form of simple data frames, containing the list of DOM elements in the Shiny app to anchor the corresponding descriptions. 
-Examples of such tours can be found in the inst/extdata folder of the iSEE package, as well as in the GitHub repository of this manuscript, https://github.com/LTLA/iSEE2018/tree/master/tours.
+Examples of such tours can be found in the inst/extdata folder of the iSEE package, as well as in the GitHub repository of this manuscript, \url{https://github.com/LTLA/iSEE2018/tree/master/tours}.
 
 
 %\section*{Demonstration data sets and tours}
 \section*{Use cases} % FM: used often in other software articles in F1000res
 To demonstrate the functionality and flexibility of the iSEE package, we applied our method to a number of publicly available datasets.
-Details are provided in the tour subfolder of the GitHub repository for this manuscript (https://github.com/LTLA/iSEE2018), and for each dataset a combination of _app.R and _tour.txt is provided.
+Details are provided in the tour subfolder of the GitHub repository for this manuscript (\url{https://github.com/LTLA/iSEE2018}), and for each dataset a combination of \_app.R and \_tour.txt is provided.
 An instance of iSEE running on the respective datasets is provided as a stand-alone webpages, for demonstration purposes without the need of software installation.
 
 \subsection*{Single-cell plate-based RNA-seq}
@@ -197,30 +198,30 @@ library(iSEE)
 example(iSEE, ask = F)
 
 % TODO: embed the allen demo data set
-http://shiny.imbei.uni-mainz.de:3838/iSEE/
+\url{http://shiny.imbei.uni-mainz.de:3838/iSEE/}
 
 \subsection*{Single-cell droplet-based RNA-seq}
 % TODO: better title, or do we drop the allen section altogether (above)?
 We also demonstrate the use of iSEE to explore a larger data set of 4,000 PBMC single-cell RNA sequencing dataset from 10X Genomics \citep{zheng2017massively}.
 % TODO: take out the juice from what the tour does, and maybe one figure/screenshot in each case?
 % embed the allen demo data set
-http://shiny.imbei.uni-mainz.de:3838/iSEE_PBMC4k/
+\url{http://shiny.imbei.uni-mainz.de:3838/iSEE_PBMC4k/}
 
 \subsection*{Bulk RNA-seq from TCGA}
 We also demonstrate how iSEE seamlessly scales up with larger data sets as the TCGA RNA-seq collection of measurements for 23,368 genes across 7,706 tumor samples \citep{piccolo2015TCGA}.
 % TODO: take out the juice from what the tour does, and maybe one figure/screenshot in each case?
 % TODO: embed the TCGA demo data set
-http://shiny.imbei.uni-mainz.de:3838/iSEE_TCGA/
+\url{http://shiny.imbei.uni-mainz.de:3838/iSEE_TCGA/}
 
 \subsection*{CyTOF}
 Lastly, we also showcase the use of iSEE to vizualise and refine gating a gating analysis, followed by the investigation of a functional marker between two sample groups, using a published mass cytometry (CyTOF) data set \citep{bodenmiller2012cytof}.
 % TODO: take out the juice from what the tour does, and maybe one figure/screenshot in each case?
 
-http://shiny.imbei.uni-mainz.de:3838/iSEE_cytof/
+\url{http://shiny.imbei.uni-mainz.de:3838/iSEE_cytof/}
 
 \section*{Conclusion}
 iSEE provides a general interactive interface for visual exploration of a diverse range of `-omics datasets.
-We provide a number of demonstrations at https://github.com/LTLA/iSEE2018, using iSEE to explore the TCGA RNA-seq collection \citep{piccolo2015TCGA}, the 4,000 PBMC single-cell RNA sequencing dataset from 10X Genomics \citep{zheng2017massively} and a published mass cytometry dataset consisting of over 170,000 cells \citep{bodenmiller2012cytof}.
+We provide a number of demonstrations at \url{https://github.com/LTLA/iSEE2018}, using iSEE to explore the TCGA RNA-seq collection \citep{piccolo2015TCGA}, the 4,000 PBMC single-cell RNA sequencing dataset from 10X Genomics \citep{zheng2017massively} and a published mass cytometry dataset consisting of over 170,000 cells \citep{bodenmiller2012cytof}.
 % TODO: repurpose the conclusion if we showcase the examples in earlier sections
 % TODO: sell the idea that for every dataset it is possible to explore and showcase feats of interest. Something like...
 We expect the functionality and flexibility of the iSEE package to be essential when exploring and showcasing relevant features of any dataset which can be represented in the form of a SummarizedExperiment object, in such a way that a public instance of iSEE can ideally accompany any publication, e.g. reproducing the manuscript figures, but also allowing any user to foster hypothesis generation with efficient interactive and reproducible data analysis.
@@ -231,13 +232,13 @@ contributions of each author to the manuscript should be detailed in this sectio
 recommend using author initials and then stating briefly how they contributed.
 
 \subsection*{Data and software availability}
-The iSEE package is available at https://bioconductor.org/packages/iSEE
+The iSEE package is available at \url{https://bioconductor.org/packages/iSEE}
 
-Source code of the development version is available at https://github.com/csoneson/iSEE
+Source code of the development version is available at \url{https://github.com/csoneson/iSEE}
 
 Archived source code as at the time of publication is available at % TODO
 
-An instance of the package running on a public Shiny Server is available at http://shiny.imbei.uni-mainz.de:3838/iSEE/
+An instance of the package running on a public Shiny Server is available at \url{http://shiny.imbei.uni-mainz.de:3838/iSEE/}
 
 % TODO: docker/singularity containers
 
