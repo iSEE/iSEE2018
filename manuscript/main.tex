@@ -14,14 +14,14 @@
 \usepackage{f1000_styles}
 
 %% Default: numerical citations
-\usepackage[numbers]{natbib}
+% \usepackage[numbers]{natbib}
 
 %% Uncomment this lines for superscript citations instead
 % \usepackage[super]{natbib}
 
 %% Uncomment these lines for author-year citations instead
-% \usepackage[round]{natbib}
-% \let\cite\citep
+\usepackage[round]{natbib}
+\let\cite\citep
 
 \begin{document}
 
@@ -100,7 +100,7 @@ further selection of points in the column data plot determines the samples that 
 \label{fig:iSEE}
 \end{figure*}
 
-\section*{iSEE supports multiple genomics data types}
+\section*{Implementation}
 Here, we present the iSEE software package for interactive data exploration.
 iSEE is implemented in R using the shiny framework \citep{chang2017shiny} and exploits data architectures from the open-source Bioconductor project \citep{gentleman2004bioconductor}.
 The iSEE interface is initialized with a single function call accepting a SummarizedExperiment object as input \citep{huber2015orchestrating}.
@@ -114,14 +114,30 @@ As a consequence, the widespread adoption of the SummarizedExperiment class and 
 %In particular, we leverage off the state-of-the-art allowing us to avoid re-implementing them in iSEE (as is commonly done in other standalone visualization tools).
 % KRA: any other child class like SingleCellExperiment worth mentioning? e.g. the BSseq class
 
-\section*{Description of the iSEE interface}
+% \section*{Description of the iSEE interface} % FM: if required, "turn on the section"?
+The layout of the iSEE user interface is built on top of the shinydashboard package. 
+The header contains three dropdown menus, related to internal iSEE diagnostics function, documentation, and additional information. % TODO, FM: maybe we can/should cross-reference to the upcoming sections?
+The sidebar of iSEE contains a dropdown menu and a button for creating new plots or tables (referred to as ``panels'') in the interface. Panels can be added, canceled, adjusted in width and height, and re-organized, by clicking on the corresponding color-coded tabs.
+The main element in the body of iSEE is the combination of panels, generated (and optionally linked to one another) according to the users' actions.  
+Besides the package documentation and vignette, users can get familiar with the main elements of the user interface by taking an interactive tour (based on the rintrojs package []ganz[]), which will allow them to learn the basic usage mechanisms by doing. 
 
-In this section, give a brief description of each panel type.
 
-% the previous section mainly focuses on the input object
+\section*{Functionality}
+Currently, there are currently six different panel types that can be generated with iSEE. For each panel, three different set of parameters are available in collapsible boxes. Data parameters control settings specific to each type of plot; Visual parameters specify parameters that will determine the aspect of the plot (coloring, point features, ...); Selection parameters relate to the point selections and link relationships to other plots.
 
-\section*{Dynamic linking between panels}
+\begin{itemize}
+\item Reduced dimension plots -  Display any reduced dimension results (e.g., PCA, t-SNE), extracted from the reducedDim slot of a SingleCellExperiment object is supplied to iSEE, enabling efficient exploration of high-dimensional datasets.
+\item Column data plots - Visualize sample metadata stored in the SummarizedExperiment object, whereas plots can assume various forms, depending on the nature of the data on the x- and y-axes.
+\item Feature expression plots - Visualize the expression values for a particular feature (e.g., a gene) across the samples on the y-axis, often resulting in (grouped) violin plots or scatter plots, if the X axis is set to categorical or continuous variables, respectively.
+\item Row statistics tables - Present the values of the rowData slot for the SummarizedExperiment object. A typical usage for such tables is to link to other plots, in order to determine the features to use for plotting, or coloring.
+\item Row data plots - Visualize the information stored in the rowData slot of a SummarizedExperiment object, in a behavior that follows the implementation of column data plots.
+\item Heat maps - Visualize overviews of the data at hand, in the form of color-coded expression matrices, where features such as genes are the rows, and samples are the columns. Selection of features is possible from dedicated widgets, which also allow subsetting based on other panels.
+\end{itemize}
 
+Coloring of points (i.e., samples) on each plot can be achieved in different ways, where the default is no color scheme and results in black data points. 
+Any column from the metadata of the SummarizedExperiment can be used, and the same is true for the expression values of a particular feature. The plotting routines automatically adjust the scale to use, based on the chosen variable.
+
+\subsection*{Dynamic linking between panels}
 A key feature of iSEE is the ability to dynamically transmit information between panels (Fig.~\ref{fig:iSEE}B).
 Users can define arbitrary links between ``transmitting'' and ``receiving'' panels, whereby selections in transmitting tables and plots highlight the corresponding data points in receiving panels.
 This feature facilitates exploration of the relationships between different aspects of the data -- for example, users can easily determine co-expression patterns of genes in a particular region of a reduced dimensionality embedding, by transmitting information from the reduced dimension plot to one or more feature expression plots.
@@ -129,9 +145,13 @@ The linking paradigm extends to multiple plots whereby a plot can transmit to mu
 This allows users to mimic the arbitrarily complex gating strategies often found in analyses of flow cytometry data \citep{finak2014opencyto}, with the advantage of being extensible to any (meta)data present in a SummarizedExperiment object.
 Information can similarly be transferred between tables and plots, e.g., selecting a row determines how points are coloured in receiving plots.
 
-\section*{Advanced features and customization}
+\subsection*{Advanced features and customization}
 
-% KRA: Also, we should probably highlight somewhere that additional inputs can customize the startup state of the application
+Additional parameters, provided when launching the iSEE application, can customize the startup state of the application
+The number and identity of the panels, as well as their inter-relationships can also be specified at initialization, thus avoiding the need to click through the choices to obtain the desired panel setup. 
+An example of such customization is provided in %% TODO %%
+Users can refer to the documentation of ?defaults for the full list of values that can be specified in iSEE.
+
 
 \subsection*{ExperimentColorMap: custom color maps}
 
@@ -149,12 +169,24 @@ For large datasets, points can be downsampled in a density-dependent manner to a
 
 \subsection*{Code tracking and reproducibility}
 
-After analyses are completed, users can deploy iSEE on a server with a bespoke step-by-step ``tour'' of their dataset, guiding the audience through an examination of the salient features in the data.
-iSEE also automatically memorizes the exact R code that was used to generate every plot and the existing links,
-extending previous work by \cite{marini2016interrepro}.
+iSEE also automatically memorizes the exact R code that was used to generate every plot and the existing links, extending previous work by \cite{marini2016interrepro}. A modal popup window, with a shinyAce-based text editor, where the code is formatted and displayed with syntax highlighting, is opened when clicking on the `Extract the R code'' button from the diagnostics dropdown menu in the header.
 This allows users to easily reproduce the results of any exploratory analysis, simply by copying the code reported by iSEE into their own analysis scripts.
+Additionally, the ``Examine panel chart'' functionality, in the iSEE diagnostics dropdown menu, returns a graph representation of the existing links and point selection among the open panels. This can be very useful in sessions that include a large number of panels.
+Clicking on the ``Display panel settings'' button from the same dropdown menu returns the required lines of code that underlie the current setup of currently open panels.
 
-\section*{Demonstration data sets and tours}
+\subsection*{App tours and deployment}
+After analyses are completed, users can deploy iSEE on a server with a bespoke step-by-step ``tour'' of their dataset, guiding the audience through an examination of the salient features in the data.
+This normally requires the setup of a Shiny Server, % TODO: FM, do we want to provide some basic instructions on how to do it?, 
+as well as the preparation of the dataset at hand in form of a SummarizedExperiment - which many workflows available in Bioconductor adopt as main representation.
+Tours can be provided to the iSEE function in the form of simple data frames, containing the list of DOM elements in the Shiny app to anchor the corresponding descriptions. 
+Examples of such tours can be found in the inst/extdata folder of the iSEE package, as well as in the GitHub repository of this manuscript, https://github.com/LTLA/iSEE2018/tree/master/tours.
+
+%\section*{Demonstration data sets and tours}
+\section*{Use cases} % FM: used often in other software articles in F1000res
+
+To demonstrate the functionality and flexibility of the iSEE package, we applied our method to a number of publicly available datasets.
+Details are provided in the tour subfolder of the GitHub repository for this manuscript (https://github.com/LTLA/iSEE2018), and for each dataset a combination of _app.R and _tour.txt is provided.
+An instance of iSEE running on the respective datasets is provided as a stand-alone webpages, for demonstration purposes without the need of software installation.
 
 \subsection*{Single-cell plate-based RNA-seq}
 % TODO: better title, or do we drop this allen section altogether?
@@ -162,6 +194,7 @@ This allows users to easily reproduce the results of any exploratory analysis, s
 We demonstrate the application of iSEE to examine a subset of 379 cells from of mouse visual cortex \citep{tasic2016allen}.
 
 % TODO: embed the allen demo data set
+http://shiny.imbei.uni-mainz.de:3838/iSEE/
 
 \subsection*{Single-cell droplet-based RNA-seq}
 % TODO: better title, or do we drop the allen section altogether (above)?
@@ -169,28 +202,42 @@ We demonstrate the application of iSEE to examine a subset of 379 cells from of 
 We also demonstrate the use of iSEE to explore a larger data set of 4,000 PBMC single-cell RNA sequencing dataset from 10X Genomics \citep{zheng2017massively}.
 
 % embed the allen demo data set
+http://shiny.imbei.uni-mainz.de:3838/iSEE_PBMC4k/
 
-\subsection*{Bulk RNA-seq}
+\subsection*{Bulk RNA-seq from TCGA}
 
 We also demonstrate how iSEE seamlessly scales up with larger data sets as the TCGA RNA-seq collection of measurements for 23,368 genes across 7,706 tumor samples \citep{piccolo2015TCGA}.
 
 % TODO: embed the TCGA demo data set
+http://shiny.imbei.uni-mainz.de:3838/iSEE_TCGA/
 
 \subsection*{CyTOF}
 
 Lastly, we also showcase the use of iSEE to vizualise and refine gating a gating analysis, followed by the investigation of a functional marker between two sample groups, using a published mass cytometry (CyTOF) data set \citep{bodenmiller2012cytof}.
 
 % TODO: embed the TCGA demo data set
+http://shiny.imbei.uni-mainz.de:3838/iSEE_cytof/
 
 \section*{Conclusion}
 iSEE provides a general interactive interface for visual exploration of a diverse range of `-omics datasets.
 We provide a number of demonstrations at https://github.com/LTLA/iSEE2018, using iSEE to explore the TCGA RNA-seq collection \citep{piccolo2015TCGA}, the 4,000 PBMC single-cell RNA sequencing dataset from 10X Genomics \citep{zheng2017massively} and a published mass cytometry dataset consisting of over 170,000 cells \citep{bodenmiller2012cytof}.
 % TODO: repurpose the conclusion if we showcase the examples in earlier sections
+% TODO: sell the idea that for every dataset it is possible to explore and showcase feats of interest
 
 \subsection*{Author contributions}
 In order to give appropriate credit to each author of an article, the individual
 contributions of each author to the manuscript should be detailed in this section. We
 recommend using author initials and then stating briefly how they contributed.
+
+\subsection*{Data and software availability}
+- source code
+- archived source
+- package at...
+- shiny at...
+- docker/singularity containers
+- conda pkg
+- Software license: MIT
+
 
 \subsection*{Competing interests}
 All financial, personal, or professional competing interests for any of the authors that
@@ -204,6 +251,7 @@ The work of FM is supported by the German Federal Ministry of Education and Rese
 \subsection*{Acknowledgements}
 We thank the organizers and participants of the European Bioconductor Meeting 2017, where the idea for this package was first conceived.
 We also thank members of the Bioconductor community for their helpful suggestions.
+
 
 
 {\small\bibliographystyle{unsrtnat}
