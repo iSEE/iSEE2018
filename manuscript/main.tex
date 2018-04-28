@@ -133,8 +133,8 @@ Individual panel types include:
 \begin{itemize}
 \item Reduced dimension plots -  Display any two dimensions from precomputed reduced dimension matrices (e.g., PCA, t-SNE) available in the reducedDim slot of a SingleCellExperiment object supplied to iSEE. Notably, the capacity of SingleCellExperiment objects to store any number of reduced dimension matrices enables efficient exploration of high-dimensional datasets.
 \item Column data plots - Visualize sample metadata stored in the colData slot of SummarizedExperiment object. Conveniently, both categorical and continuous covariates are seamlessly supported, with the geometry of the plot layers automatically switching between scatter plots, violin plots, or bi-categorical grid plots, according to the nature of the data on both axes.
-\item Feature expression plots - Visualize the expression values for a particular feature (e.g., gene, protein) within individual samples.
-This type of plot adopts either a violin or a scatter plot geometry, according to the nature of the second covariate.
+\item Feature expression plots - Visualize expression values from any assay stored in the SummarizedExperiment object for a particular feature (e.g., gene, protein) within individual samples.
+This type of plot often adopts a violin or scatter plot geometry, according to the nature of the second covariate.
 \item Row statistics tables - Present the values of the rowData slot for the SummarizedExperiment object. A typical usage for such tables is to link to other plots, in order to determine the features to use for plotting, or coloring.
 \item Row data plots - Visualize the information stored in the rowData slot of a SummarizedExperiment object, in a behavior that follows the implementation of column data plots.
 \item Heat maps - Visualize overviews of the data at hand, in the form of color-coded expression matrices, where features such as genes are the rows, and samples are the columns. Selection of features is possible from dedicated widgets, which also allow subsetting based on other panels.
