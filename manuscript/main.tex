@@ -193,10 +193,12 @@ For large datasets, points can be downsampled in a density-dependent manner to a
 
 \subsection*{Code tracking and reproducibility}
 
-iSEE also automatically memorizes the exact R code that was used to generate every plot and the existing links, extending previous work by \cite{marini2016interrepro}. A modal popup window, with a shinyAce-based text editor, where the code is formatted and displayed with syntax highlighting, is opened when clicking on the `Extract the R code'' button from the diagnostics dropdown menu in the header.
-This allows users to easily reproduce the results of any exploratory analysis, simply by copying the code reported by iSEE into their own analysis scripts.
-Additionally, the ``Examine panel chart'' functionality, in the iSEE diagnostics dropdown menu, returns a graph representation of the existing links and point selection among the open panels. This can be very useful in sessions that include a large number of panels.
-Clicking on the ``Display panel settings'' button from the same dropdown menu returns the required lines of code that underlie the current setup of currently open panels.
+iSEE also automatically memorizes the exact R code that was used to generate every plot and the existing links, extending previous work by \cite{marini2016interrepro}.
+The full code is accessible to users at any time, using the `Extract the R code'' button from the diagnostics dropdown menu in the header.
+A modal window displays the formatted code in a shinyAce-based text editor with syntax-highlighting and copy-pasting capabilities, allowing users to easily reproduce the results of any exploratory analysis, simply by integrating the code reported by iSEE into their own scripts.
+
+Additionally, the ``Examine panel chart'' functionality, in the iSEE diagnostics dropdown menu, displays a graphical representation of the existing linked point selections between the visible panels. This can be very useful in sessions that include a large number of panels, and complex 'gating' strategies.
+Lastly, the ``Display panel settings'' button from the same dropdown menu returns the required lines of code that underlie the current setup of currently open panels, that may be used in startup scripts to launch an iSEE instance in any prefered layout.
 
 \subsection*{App tours and deployment}
 After analyses are completed, users can deploy iSEE on a server with a bespoke step-by-step ``tour'' of their dataset, guiding the audience through an examination of the salient features in the data.
