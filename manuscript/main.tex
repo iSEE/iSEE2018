@@ -168,8 +168,20 @@ A comprehensive list of configurable startup values is available in the ?default
 \subsection*{ExperimentColorMap: custom color maps}
 
 iSEE also offers a host of other customizable features to improve data exploration.
-Users can supply their own colour mappings to iSEE, to control how colour scales are chosen for each metadata variable and assay type across all panels in the application.
-% TODO: KRA develop here
+To complement the default discrete and continuous color scales borrowed from the ggplot2 \citep{wickham2009ggplot2} and viridis packages \citep{garnier2018viridis}, respectively, iSEE implements the ExperimentColorMap class, that acts as a container capable of accomodating any number of arbitrary color maps.
+Color maps are stored as functions that require a single argument, namely the number of colors that they should return. A notable exception are discrete color maps, that may choose to ignore their argument in order to consistently return a constant vector of named colors corresponding to the levels of a known factor.
+Color maps stored in ExperimentColorMap objects can be named and retrieved through intuitive accessor functions that follow a naming convention mirroring that of SummarizedExperiment objects (i.e., assayColorMap, colDataColorMap, rowDataColorMap), and thereby facilitates integration within Bioconductor workflows.
+
+Notably, iSEE uses a ExperimentColorMap object to coordinate the color scale applied to every assay, column data, and row data variable across all plots of a session.
+The default ExperimentColorMap does not contain any custom color map, and leverages an elegant fallback mechanism to consistently return a discrete or continuous colormap, even for undefined covariates.
+
+Color maps may be overriden at three different levels:
+
+\begin{itemize}
+  \item Each individual assay, column data, and row data covariate can be assigned its own distinct color map. Those color maps in the assays, colData, and rowData slots, respectively.
+  \item Shared colormaps can be defined for all assays, all column data, and all row data covariates, respectively. These shared color maps come into effect for variables that do not have an individual color map.
+  \item Globally shared color maps can be defined for all discrete or continuous covariate that do not have color maps defined at the first two levels.
+\end{itemize}
 
 \subsection*{Linked feature annotations}
 
