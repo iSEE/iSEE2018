@@ -147,11 +147,14 @@ However, any column from the metadata available in the SummarizedExperiment may 
 
 \subsection*{Dynamic linking between panels}
 A key feature of iSEE is the ability to dynamically transmit information between panels (Fig.~\ref{fig:iSEE}B).
-Users can define arbitrary links between ``transmitting'' and ``receiving'' panels, whereby selections in transmitting tables and plots highlight the corresponding data points in receiving panels.
-This feature facilitates exploration of the relationships between different aspects of the data -- for example, users can easily determine co-expression patterns of genes in a particular region of a reduced dimensionality embedding, by transmitting information from the reduced dimension plot to one or more feature expression plots.
-The linking paradigm extends to multiple plots whereby a plot can transmit to multiple receivers, or a receiving plot can itself transmit its own selection to another plot.
-This allows users to mimic the arbitrarily complex gating strategies often found in analyses of flow cytometry data \citep{finak2014opencyto}, with the advantage of being extensible to any (meta)data present in a SummarizedExperiment object.
-Information can similarly be transferred between tables and plots, e.g., selecting a row determines how points are coloured in receiving plots.
+Users can define and reorganize arbitrary links between ``transmitting'' and ``receiving'' panels, whereby selections in transmitting panels control the inclusion and appearance of the corresponding data points in receiving panels.
+This feature facilitates exploration of the relationships between different aspects of the data.
+For example, users can easily determine co-expression patterns of genes in a particular region of a reduced dimensionality embedding -- this is achieved by transmitting information from the reduced dimension plot to any number of feature expression plots.
+
+Importantly, the linking paradigm extends to multiple panels, whereby a panel can transmit to multiple receivers, and a receiving panel can transmit its own selection to another plot.
+Chains of linked plots allow users to mimic the arbitrarily complex gating strategies often found in analyses of flow cytometry data \citep{finak2014opencyto}.
+Nevertheless, iSEE augments this functionality with the advantage of integrating filters based on any feature and column metadata present in a SummarizedExperiment object.
+Lastly, both tables and plot panels may be used as sources and targets of dynamically linked selections (e.g., selecting a table row to control the coloring of data points in a plot).
 
 \subsection*{Advanced features and customization}
 
