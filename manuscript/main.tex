@@ -132,7 +132,7 @@ Individual panel types include:
 
 \begin{itemize}
 \item Reduced dimension plots -  Display any two dimensions from precomputed reduced dimension matrices (e.g., PCA, t-SNE) available in the reducedDim slot of a SingleCellExperiment object supplied to iSEE. Notably, the capacity of SingleCellExperiment objects to store any number of reduced dimension matrices enables efficient exploration of high-dimensional datasets.
-\item Column data plots - Visualize sample metadata stored in the SummarizedExperiment object, whereas plots can assume various forms, depending on the nature of the data on the x- and y-axes.
+\item Column data plots - Visualize sample metadata stored in the colData slot of SummarizedExperiment object. Conveniently, both categorical and continuous covariates are seamlessly supported, with the geometry of the plot layers automatically switching between scatter plots, violin plots, or bi-categorical grid plots, according to the nature of the data on both axes.
 \item Feature expression plots - Visualize the expression values for a particular feature (e.g., a gene) across the samples on the y-axis, often resulting in (grouped) violin plots or scatter plots, if the X axis is set to categorical or continuous variables, respectively.
 \item Row statistics tables - Present the values of the rowData slot for the SummarizedExperiment object. A typical usage for such tables is to link to other plots, in order to determine the features to use for plotting, or coloring.
 \item Row data plots - Visualize the information stored in the rowData slot of a SummarizedExperiment object, in a behavior that follows the implementation of column data plots.
