@@ -158,11 +158,12 @@ Lastly, both tables and plot panels may be used as sources and targets of dynami
 
 \subsection*{Advanced features and customization}
 
-Additional parameters, provided when launching the iSEE application, can customize the startup state of the application
-The number and identity of the panels, as well as their inter-relationships can also be specified at initialization, thus avoiding the need to click through the choices to obtain the desired panel setup.
-An example of such customization is provided in %% TODO %%
-Users can refer to the documentation of ?defaults for the full list of values that can be specified in iSEE.
-
+Instances of iSEE applications may be individually pre-configured to alter the startup layout and state of individual panel inputs.
+Conveniently, this feature makes it possible to showcase salient features of any data set immediately upon startup, avoiding the need for any unnecessary user input.
+In particular, startup settings include the number of panels of each type, their position, width, and height in the interface, individual variables used for each axis and color scale, as well as dynamic links between panels and even brushes and lasso selections may all be configured and saved as an R script that may be run or shared with collaborators for this purpose.
+Example of such customization are readily demonstrated by the tours, available at
+\url{https://github.com/LTLA/iSEE2018/tree/master/tours}. %% TODO: is that redundant of the later description of tours? %%
+A comprehensive list of configurable startup values is available in the ?defaults documentation.
 
 \subsection*{ExperimentColorMap: custom color maps}
 
