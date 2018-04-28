@@ -89,7 +89,7 @@ This complicates any coordinated use of these tools with a reproducible, transpa
 \includegraphics[width=\textwidth]{pics/Fig1.pdf}
 \caption{iSEE uses a customisable multi-panel layout (A) that simultaneously displays one or more panels of various types, where each panel type visualizes a different aspect of the data.
 New panels of any type can be added (i), and all panels can be removed, reordered or resized (ii).
-Panel types are available visualize sample-based reduced dimensionality embeddings (iii), sample-level metadata (iv), and experimental observations across samples for each feature (v).
+Panel types are available to visualize sample-based reduced dimensionality embeddings (iii), sample-level metadata (iv), and experimental observations across samples for each feature (v).
 For these panel types, each sample is represented as a point, which can be coloured according to sample-level metadata or feature-level observations.
 Depending on whether the variables of interest are categorical or numeric, panels will automatically switch between scatter plots, violin plots or ``rectangle plots'' (where each combination of categorical levels is represented by a rectangle with area proportional to the frequency of combination).
 Other panel types include row statistics tables (vi), to facilitate searching across features and their metadata; heatmaps (vii), to visualize experimental observations for multiple features; and feature-level metadata plots.
@@ -103,28 +103,30 @@ further selection of points in the column data plot determines the samples that 
 
 \section*{Implementation}
 Here, we present the iSEE software package for interactive data exploration.
-iSEE is implemented in R using the shiny framework \citep{chang2017shiny} and exploits data architectures from the open-source Bioconductor project \citep{gentleman2004bioconductor}.
+iSEE is implemented in R using the Shiny framework \citep{chang2017shiny} and exploits data architectures from the open-source Bioconductor project \citep{gentleman2004bioconductor}.
 The iSEE interface is initialized with a single function call accepting a SummarizedExperiment object as input \citep{huber2015orchestrating}.
-The SummarizedExperiment class stores one or more matrices of experimental observations as ``assays'', where columns and rows represent samples and features, respectively.
-For instance, these may represent gene expression matrices of raw counts along with different normalization strategies.
+The SummarizedExperiment class stores one or more matrices of experimental observations as ``assays'', where rows and columns represent genomic features and biological samples, respectively.
+For instance, individual assays may represent gene expression matrices of raw counts along with different normalization strategies.
 In addition, per-feature or per-sample variables are stored in the ``rowData'' and ``colData'', respectively; those may include experimental metadata as well as any analysis results.
 All of these data aspects can be readily examined alongside one another in the multi-panel layout of the iSEE interface (Fig.~\ref{fig:iSEE}A).
 
 Notably, the flexibility of the SummarizedExperiment class is the driving factor behind its broad deployment throughout the Bioconductor ecosystem, with uses in RNA sequencing \citep{love2014moderated}, methylation \citep{aryee2014minfi} and Hi-C analysis pipelines \citep{lun2016infrastructure}, amongst others.
-As a consequence, the widespread adoption of the SummarizedExperiment class and its specialized extensions such as the SingleCellExperiment class enables iSEE to offer immediate interactive visualization for a variety of data modalities, complementing the state-of-the-art analysis methodologies already available in R/Bioconductor packages.
+As a consequence, the widespread adoption of the SummarizedExperiment class and its specialized extensions such as the SingleCellExperiment class enables iSEE to offer immediate interactive visualization for a variety of data modalities, complementing the state-of-the-art analysis workflows and methodologies already available in R/Bioconductor packages.
 %In particular, we leverage off the state-of-the-art allowing us to avoid re-implementing them in iSEE (as is commonly done in other standalone visualization tools).
 % KRA: any other child class like SingleCellExperiment worth mentioning? e.g. the BSseq class
 
 % \section*{Description of the iSEE interface} % FM: if required, "turn on the section"?
-The layout of the iSEE user interface is built on top of the shinydashboard package. 
-The header contains three dropdown menus, related to internal iSEE diagnostics function, documentation, and additional information. % TODO, FM: maybe we can/should cross-reference to the upcoming sections?
-The sidebar of iSEE contains a dropdown menu and a button for creating new plots or tables (referred to as ``panels'') in the interface. Panels can be added, canceled, adjusted in width and height, and re-organized, by clicking on the corresponding color-coded tabs.
-The main element in the body of iSEE is the combination of panels, generated (and optionally linked to one another) according to the users' actions.  
-Besides the package documentation and vignette, users can get familiar with the main elements of the user interface by taking an interactive tour (based on the rintrojs package []ganz[]), which will allow them to learn the basic usage mechanisms by doing. 
+The layout of the iSEE user interface is built using the shinydashboard package \citep{chang2018shinydashboard}.
+The header contains three dropdown menus that provide constant access to diagnostics of the current application state, documentation, and additional information, respectively. % TODO, FM: maybe we can/should cross-reference to the upcoming sections?
+The sidebar of iSEE contains a menu enabling the creation of new plots and tables (referred to as ``panels'') in the interface.
+Individual color-coded tabs allow the corresponding panel to be re-ordered, adjusted in width and height, or removed from the user interface.
+The main component of the iSEE interface displays a combination of active panels controlled by the user's actions in the current session.
+Notably, individual panels can optionally be linked to one another, allowing information to be dynamically transmitted between the panels.
+In addition to the package documentation and vignette, users can familiarize themselves with the main elements of the user interface by taking an interactive tour (based on the rintrojs package []ganz[]), allowing them to learn the basic usage mechanisms by doing.
 
 
-\section*{Functionality}
-Currently, there are currently six different panel types that can be generated with iSEE. For each panel, three different set of parameters are available in collapsible boxes. Data parameters control settings specific to each type of plot; Visual parameters specify parameters that will determine the aspect of the plot (coloring, point features, ...); Selection parameters relate to the point selections and link relationships to other plots.
+\section*{Functionalities}
+Currently, six different panel types can be generated with iSEE. For each panel, three different set of parameters are available in collapsible boxes. Data parameters control settings specific to each type of plot; Visual parameters specify parameters that will determine the aspect of the plot (coloring, point features, ...); Selection parameters relate to the point selections and link relationships to other plots.
 
 \begin{itemize}
 \item Reduced dimension plots -  Display any reduced dimension results (e.g., PCA, t-SNE), extracted from the reducedDim slot of a SingleCellExperiment object is supplied to iSEE, enabling efficient exploration of high-dimensional datasets.
@@ -135,7 +137,7 @@ Currently, there are currently six different panel types that can be generated w
 \item Heat maps - Visualize overviews of the data at hand, in the form of color-coded expression matrices, where features such as genes are the rows, and samples are the columns. Selection of features is possible from dedicated widgets, which also allow subsetting based on other panels.
 \end{itemize}
 
-Coloring of points (i.e., samples) on each plot can be achieved in different ways, where the default is no color scheme and results in black data points. 
+Coloring of points (i.e., samples) on each plot can be achieved in different ways, where the default is no color scheme and results in black data points.
 Any column from the metadata of the SummarizedExperiment can be used, and the same is true for the expression values of a particular feature. The plotting routines automatically adjust the scale to use, based on the chosen variable.
 
 \subsection*{Dynamic linking between panels}
@@ -149,7 +151,7 @@ Information can similarly be transferred between tables and plots, e.g., selecti
 \subsection*{Advanced features and customization}
 
 Additional parameters, provided when launching the iSEE application, can customize the startup state of the application
-The number and identity of the panels, as well as their inter-relationships can also be specified at initialization, thus avoiding the need to click through the choices to obtain the desired panel setup. 
+The number and identity of the panels, as well as their inter-relationships can also be specified at initialization, thus avoiding the need to click through the choices to obtain the desired panel setup.
 An example of such customization is provided in %% TODO %%
 Users can refer to the documentation of ?defaults for the full list of values that can be specified in iSEE.
 
@@ -177,9 +179,9 @@ Clicking on the ``Display panel settings'' button from the same dropdown menu re
 
 \subsection*{App tours and deployment}
 After analyses are completed, users can deploy iSEE on a server with a bespoke step-by-step ``tour'' of their dataset, guiding the audience through an examination of the salient features in the data.
-This normally requires the setup of a Shiny Server, % TODO: FM, do we want to provide some basic instructions on how to do it?, 
+This normally requires the setup of a Shiny Server, % TODO: FM, do we want to provide some basic instructions on how to do it?,
 as well as the preparation of the dataset at hand in form of a SummarizedExperiment - which many workflows available in Bioconductor adopt as main representation.
-Tours can be provided to the iSEE function in the form of simple data frames, containing the list of DOM elements in the Shiny app to anchor the corresponding descriptions. 
+Tours can be provided to the iSEE function in the form of simple data frames, containing the list of DOM elements in the Shiny app to anchor the corresponding descriptions.
 Examples of such tours can be found in the inst/extdata folder of the iSEE package, as well as in the GitHub repository of this manuscript, \url{https://github.com/LTLA/iSEE2018/tree/master/tours}.
 
 
@@ -243,7 +245,7 @@ An instance of the package running on a public Shiny Server is available at \url
 % TODO: docker/singularity containers
 
 % TODO:conda pkg
-% The iSEE package is also distributed via the bioconda channel for the conda package manager at...https://anaconda.org/bioconda/bioconductor-isee % still needs to be finalized!! 
+% The iSEE package is also distributed via the bioconda channel for the conda package manager at...https://anaconda.org/bioconda/bioconductor-isee % still needs to be finalized!!
 
 Software license: MIT
 
