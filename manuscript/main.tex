@@ -13,6 +13,7 @@
 \documentclass[10pt,a4paper,twocolumn]{article}
 \usepackage{f1000_styles}
 \usepackage{url}
+\usepackage{listings}
 
 %% Default: numerical citations
 % \usepackage[numbers]{natbib}
@@ -221,13 +222,15 @@ An instance of iSEE running on the respective datasets is provided as a stand-al
 \subsection*{Single-cell plate-based RNA-seq}
 % TODO: better title, or do we drop this allen section altogether?
 We demonstrate the application of iSEE to examine a subset of 379 cells from of mouse visual cortex \citep{tasic2016allen}.
-This example can be reproduced also by calling
 
+Link: \url{http://shiny.imbei.uni-mainz.de:3838/iSEE/}
+
+This particular example can be reproduced locally after installation of the iSEE package with the following code:
+
+\begin{lstlisting}[language=R]
 library(iSEE)
 example(iSEE, ask = F)
-
-% TODO: embed the allen demo data set
-\url{http://shiny.imbei.uni-mainz.de:3838/iSEE/}
+\end{lstlisting}
 
 \subsection*{Single-cell droplet-based RNA-seq}
 % TODO: better title, or do we drop the allen section altogether (above)?
