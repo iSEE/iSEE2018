@@ -120,10 +120,10 @@ These results are taken from the reducedDim slot of any SingleCellExperiment obj
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{pics/Fig1.pdf}
 \caption{iSEE uses a customisable multi-panel layout (A) that simultaneously displays one or more panels of various types, where each panel type visualizes a different aspect of the data.
-Panels of each type are colour-coded for ease of use.
 New panels of any type can be added (i), and all panels can be removed, reordered or resized (ii).
 Panel types are available to visualize sample-based reduced dimensionality embeddings (iii), sample-level metadata (iv), and experimental observations across samples for each feature (v).
 Other panel types include row statistics tables (vi), to facilitate searching across features and their metadata; heatmaps (vii), to visualize experimental observations for multiple features; and feature-level metadata plots.
+Panels of each type are colour-coded for ease of interpretation.
 (B) Information can be transmitted between panels according to a user-specified scheme.
 Here, the selection of feature $X$ in the row statistics table determines the y-axis of the feature expression plot, and colours the samples in the reduced dimension plot by the expression of $X$.
 Selection of points in the reduced dimension plot (dotted blue line) also determines the samples that are shown in the column data (i.e., sample metadata) plot;
@@ -180,7 +180,7 @@ This can be used in startup scripts to launch an iSEE instance in any preferred 
 \subsection*{Additional functionalities}
 Row statistics tables can be augmented with dynamic annotation based on the selected row, linking to online resources such as Ensembl or Entrez. % do we need to cite them? at least ENSEMBL has updated citable papers
 For large datasets, points can be downsampled in a density-dependent manner to accelerate rendering of the plots, improving the responsiveness of the interface without compromising the fidelity of the visualization.
-Users can also include a bespoke step-by-step ``tour'' of their data set via the rintrojs package \cite{ganz}, guiding the audience through an examination of the salient features in the data.
+Users can also include a bespoke step-by-step ``tour'' of their data set via the rintrojs package \cite{ganz2016rintrojs}, guiding the audience through an examination of the salient features in the data.
 
 \section*{Use cases} % FM: used often in other software articles in F1000res
 To demonstrate the functionalities and flexibility of the iSEE package, we applied our method to a number of publicly available datasets.
