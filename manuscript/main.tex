@@ -142,8 +142,8 @@ These tables are particularly helpful when dynamically linked with other panels,
 As such, heat maps may receive both row and column data inputs from appropriately linked panels, to control the subsetting and highlighting of individual features and samples selected in the respective source panels.
 \end{itemize}
 
-Coloring of points (i.e., samples) on each plot can be achieved in different ways, where the default is no color scheme and results in black data points.
-Any column from the metadata of the SummarizedExperiment can be used, and the same is true for the expression values of a particular feature. The plotting routines automatically adjust the scale to use, based on the chosen variable.
+The color of individual data points (i.e., samples) can be controlled in different ways in each plot. The default is no color scheme, with the same color (default, black) being applied uniformly to all data points.
+However, any column from the metadata available in the SummarizedExperiment may be used, as well as any any assay data. The plotting routines automatically adjust the scale to use, based on the chosen variable.
 
 \subsection*{Dynamic linking between panels}
 A key feature of iSEE is the ability to dynamically transmit information between panels (Fig.~\ref{fig:iSEE}B).
