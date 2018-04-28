@@ -126,10 +126,12 @@ In addition to the package documentation and vignette, users can familiarize the
 
 
 \section*{Functionalities}
-Currently, six different panel types can be generated with iSEE. For each panel, three different set of parameters are available in collapsible boxes. Data parameters control settings specific to each type of plot; Visual parameters specify parameters that will determine the aspect of the plot (coloring, point features, ...); Selection parameters relate to the point selections and link relationships to other plots.
+Currently, six different types of panels can be generated with iSEE. For each panel, three different set of parameters are available in collapsible boxes: namely, Data parameters control the sources of information specific to each type of plot; Visual parameters direct the appearance of the data points (e.g. color, opacity, size); and Selection parameters adjust the behaviour of point selections transmitted between linked panels.
+
+Individual panel types include:
 
 \begin{itemize}
-\item Reduced dimension plots -  Display any reduced dimension results (e.g., PCA, t-SNE), extracted from the reducedDim slot of a SingleCellExperiment object is supplied to iSEE, enabling efficient exploration of high-dimensional datasets.
+\item Reduced dimension plots -  Display any two dimensions from individual precomputed reduced dimension matrices (e.g., PCA, t-SNE) available in the reducedDim slot of a SingleCellExperiment object supplied to iSEE. Notably, the capacity of SingleCellExperiment objects to store any number of reduced dimension matrices enables efficient exploration of high-dimensional datasets.
 \item Column data plots - Visualize sample metadata stored in the SummarizedExperiment object, whereas plots can assume various forms, depending on the nature of the data on the x- and y-axes.
 \item Feature expression plots - Visualize the expression values for a particular feature (e.g., a gene) across the samples on the y-axis, often resulting in (grouped) violin plots or scatter plots, if the X axis is set to categorical or continuous variables, respectively.
 \item Row statistics tables - Present the values of the rowData slot for the SummarizedExperiment object. A typical usage for such tables is to link to other plots, in order to determine the features to use for plotting, or coloring.
