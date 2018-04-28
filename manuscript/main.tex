@@ -201,10 +201,14 @@ Additionally, the ``Examine panel chart'' functionality, in the iSEE diagnostics
 Lastly, the ``Display panel settings'' button from the same dropdown menu returns the required lines of code that underlie the current setup of currently open panels, that may be used in startup scripts to launch an iSEE instance in any prefered layout.
 
 \subsection*{App tours and deployment}
-After analyses are completed, users can deploy iSEE on a server with a bespoke step-by-step ``tour'' of their dataset, guiding the audience through an examination of the salient features in the data.
-This normally requires the setup of a Shiny Server, % TODO: FM, do we want to provide some basic instructions on how to do it?,
-as well as the preparation of the dataset at hand in form of a SummarizedExperiment - which many workflows available in Bioconductor adopt as main representation.
-Tours can be provided to the iSEE function in the form of simple data frames, containing the list of DOM elements in the Shiny app to anchor the corresponding descriptions.
+
+After completion of an analysis, users may deploy instances of iSEE applications on web-servers, and include a bespoke step-by-step ``tour'' of their data set, guiding the audience through an examination of the salient features in the data.
+
+This normally requires the setup of a Shiny Server, % TODO: FM, do we want to provide some basic instructions on how to do it?, % KRA: I don't think so, at least not in the paper. However, documentation and skill will be a limiting factor to encourage users
+as well as the preparation of the data set at hand in the form of a SummarizedExperiment - which many workflows available in Bioconductor adopt as main representation.
+To include results obtained from any number of dimensionality reduction algorithms, the object must be further coerced to the SingleCellExperiment class, that makes the appropriate slot available.
+
+Tours can be provided to the iSEE function in the form of simple data frames containing a list of Document Object Model (DOM) elements in the Shiny app used to anchor the corresponding associated message ultimately displayed to the user.
 Examples of such tours can be found in the inst/extdata folder of the iSEE package, as well as in the GitHub repository of this manuscript, \url{https://github.com/LTLA/iSEE2018/tree/master/tours}.
 
 
