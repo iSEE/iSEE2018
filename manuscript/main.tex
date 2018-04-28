@@ -138,7 +138,8 @@ This type of plot often adopts a violin or scatter plot geometry, according to t
 \item Row statistics tables - Present the contents of the rowData slot for the SummarizedExperiment object.
 These tables are particularly helpful when dynamically linked with other panels, both as summary tables of selected genes and sources of selections to visualise or color in target plots.
 \item Row data plots - Visualize the information stored in the rowData slot of a SummarizedExperiment object, following an implementation similar to column data plots.
-\item Heat maps - Visualize overviews of the data at hand, in the form of color-coded expression matrices, where features such as genes are the rows, and samples are the columns. Selection of features is possible from dedicated widgets, which also allow subsetting based on other panels.
+\item Heat maps - Simultaneously visualize assay data and sample metadata, in the form of color-coded expression matrix where rows represent features and columns represent samples.
+As such, heat maps may receive both row and column data inputs from appropriately linked panels, to control the subsetting and highlighting of individual features and samples selected in the respective source panels.
 \end{itemize}
 
 Coloring of points (i.e., samples) on each plot can be achieved in different ways, where the default is no color scheme and results in black data points.
