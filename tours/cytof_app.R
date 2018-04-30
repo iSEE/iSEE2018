@@ -1,6 +1,5 @@
-## Read data object and tour steps
+## Read tour steps
 tour_steps <- read.delim("cytof_tour.txt", header = TRUE, as.is = TRUE, sep = ";")
-load(url("https://www.dropbox.com/s/ogqp5grxe39c02d/bcrxl_t.rda?dl=1"))  ## bcrxl object
 
 ## Packages
 stopifnot(require(iSEE))
@@ -42,14 +41,12 @@ fd$BrushData <- list(NULL, NULL, NULL,
                      list(xmin = -1.3837629808554, xmax = 1.6091336966254, ymin = 0.38148152957448, ymax = 7.4740835739801, mapping = list(x = "X", y = "Y"), domain = list(left = -3.80032310964924, right = 9.1168276366504, bottom = 0.248462505430422, top = 7.95803222728227), range = list(left = 32.5671687714041, right = 209.520547945205, bottom = 374.038986186765, top = 24.0290131340161), log = list(x = NULL, y = NULL), direction = "xy", brushId = "featExprPlot5_Brush", outputId = "featExprPlot5"),
                      NULL)
 
-app <- iSEE(bcrxl, tour = tour_steps,
-            redDimArgs = NULL, colDataArgs = NULL,
-            featExprArgs = fd,
-            rowStatArgs = NULL, rowDataArgs = NULL, heatMapArgs = NULL,
-            redDimMax = 0, colDataMax = 0,
-            featExprMax = nrow(fd),
-            rowStatMax = 0, rowDataMax = 0, heatMapMax = 0,
-            initialPanels = initialPanels,
-            appTitle = "CyTOF data tour")
-
-shiny::runApp(app)
+iSEE(bcrxl, tour = tour_steps,
+     redDimArgs = NULL, colDataArgs = NULL,
+     featExprArgs = fd,
+     rowStatArgs = NULL, rowDataArgs = NULL, heatMapArgs = NULL,
+     redDimMax = 0, colDataMax = 0,
+     featExprMax = nrow(fd),
+     rowStatMax = 0, rowDataMax = 0, heatMapMax = 0,
+     initialPanels = initialPanels,
+     appTitle = "CyTOF data tour")
