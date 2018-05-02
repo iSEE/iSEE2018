@@ -19,8 +19,8 @@ To launch a tour, successively execute the code in the following order:
 
 ## TCGA
 
-This tour is launched by the `tcga_app.R` script.
-The only pre-requisite to run this script is that the current working directory is set to the `tours/` folder.
+This tour is launched by successively running the `tcga_data.R` and `tcga_app.R` scripts.
+The only pre-requisite to run those scripts is that the current working directory is set to the `tours/` folder.
 
 The script fetches the TCGA data set from the Bioconductor [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) in the form of an `ExpressionSet`, and performs a small number of preprocessing steps (e.g., PCA, _t_-SNE) before launching the app and the tour.
 
