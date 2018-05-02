@@ -18,7 +18,7 @@ sce <- as(se1, "SingleCellExperiment")
 sce <- scater::runPCA(sce, exprs_values = "exprs")
 irlba_out <- irlba::irlba(assay(sce, "exprs"))
 tsne_out <- Rtsne::Rtsne(
-  irlba_out$v, pca = FALSE, perplexity = 50, verbose = TRUE, max_iter = 100)
+  irlba_out$v, pca = FALSE, perplexity = 50, verbose = TRUE)
 reducedDim(sce, "TSNE") <- tsne_out$Y
 
 # library size and CPM
