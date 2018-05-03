@@ -108,7 +108,7 @@ Individual panel types include:
 
 \begin{itemize}
 \item Column data plots, for visualizing sample metadata stored in the colData slot of SummarizedExperiment object.
-\item Feature expression plots, for visualizing expression values for a particular feature (e.g., gene) across samples from any assay in the SummarizedExperiment object.
+\item Feature assay plots, for visualizing expression values for a particular feature (e.g., gene) across samples from any assay in the SummarizedExperiment object.
 Despite its name, this plot type is applicable to data modalities beyond gene expression.
 \item Row statistics tables, to present the contents of the rowData slot for the SummarizedExperiment object.
 \item Row data plots, for visualizing sample metadata stored in the rowData slot of a SummarizedExperiment object.
@@ -125,14 +125,14 @@ Panel types are available to visualize sample-based reduced dimensionality embed
 Other panel types include row statistics tables (vi), to facilitate searching across features and their metadata; heatmaps (vii), to visualize experimental observations for multiple features; and feature-level metadata plots.
 Panels of each type are colour-coded for ease of interpretation.
 (B) Information can be transmitted between panels according to a user-specified scheme.
-Here, the selection of feature $X$ in the row statistics table determines the y-axis of the feature expression plot, and colours the samples in the reduced dimension plot by the expression of $X$.
+Here, the selection of feature $X$ in the row statistics table determines the y-axis of the feature assay plot, and colours the samples in the reduced dimension plot by the expression of $X$.
 Selection of points in the reduced dimension plot (dotted blue line) also determines the samples that are shown in the column data (i.e., sample metadata) plot;
 further selection of points in the column data plot determines the samples that are shown in the heatmap.
 }
 \label{fig:iSEE}
 \end{figure*}
 
-Each sample is represented as a point in column data, feature expression and reduced dimension plots.
+Each sample is represented as a point in column data, feature assay and reduced dimension plots.
 Similarly, each feature is represented by a point in row data plots.
 For these panel types, a scatter plot is automatically produced if the selected variables on the x- and y-axes are both continuous.
 If exactly one variable is categorical, points are grouped by the categorical levels and a (horizontal) violin plot is produced with points scattered within each violin.
@@ -160,7 +160,7 @@ This provides a convenient yet flexible mechanism for customization of colouring
 A key feature of iSEE is the ability to dynamically transmit information between panels (Fig.~\ref{fig:iSEE}B).
 Users can define and reorganize arbitrary links between ``transmitting'' and ``receiving'' panels, whereby selections in transmitting panels control the inclusion and appearance of the corresponding data points in receiving panels.
 This feature facilitates exploration of the relationships between different aspects of the data.
-For example, users can easily determine co-expression patterns of genes in a particular region of a reduced dimensionality embedding -- this is achieved by selecting points in a reduced dimension plot (using the standard rectangular brush or a lasso) and transmitting that selection to any number of feature expression plots.\\
+For example, users can easily determine co-expression patterns of genes in a particular region of a reduced dimensionality embedding -- this is achieved by selecting points in a reduced dimension plot (using the standard rectangular brush or a lasso) and transmitting that selection to any number of feature assay plots.\\
 
 This linking paradigm extends to multiple panels, whereby a panel can transmit to multiple receivers, and a receiving panel can transmit its own selection to another plot.
 Chains of linked plots allow users to mimic the arbitrarily complex gating strategies often found in analyses of flow cytometry data \citep{finak2014opencyto}.
