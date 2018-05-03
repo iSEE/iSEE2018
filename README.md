@@ -8,9 +8,9 @@ This repository contains the code required to construct the tours described in t
 
 Each tour is composed of three files:
 
-- `*_data.R`: a script that contains the instructions to pre-process the data into a `SummarizedExperiment` or `SingleCellExperiment` object ready for _iSEE_
+- `*_data.R`: a script that contains the instructions to pre-process the data into a `SummarizedExperiment` or `SingleCellExperiment` object ready for _iSEE_.
 - `*_tour.txt`: a set of step-wise instructions attached to various UI elements in the _iSEE_ user interface.
-- `*_app.R`: a script that uses the object pre-processed by `*_data.R` to configure the _iSEE_ application and launch the tour
+- `*_app.R`: a script that uses the object pre-processed by `*_data.R` to configure the _iSEE_ application and launch the tour.
 
 To launch a tour, successively execute `*_data.R` and `*_app.R`.
 
