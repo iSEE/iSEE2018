@@ -2,7 +2,7 @@
 
 This repository contains the code required to construct the tours described in the _iSEE_ paper by Rue-Albrecht _et al._
 
-**Note:** these tours can be resumed from within their respective iSEE application instance, using the _question mark_ icon in the top-right corner of the _Shiny_ application.
+**Note:** these tours can be resumed from within their respective iSEE application instance, using the question mark icon in the top-right corner of the _Shiny_ application ( <img src=img/help.png height="20" width="20"> ).
 
 # Setting up the tours
 
