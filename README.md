@@ -12,10 +12,7 @@ Each tour is composed of three files:
 - `*_tour.txt`: a set of step-wise instructions attached to various UI elements in the _iSEE_ user interface.
 - `*_app.R`: a script that uses the object pre-processed by `*_data.R` to configure the _iSEE_ application and launch the tour
 
-To launch a tour, successively execute the code in the following order:
-
-- `*_data.R`
-- `*_app.R`
+To launch a tour, successively execute `*_data.R` and `*_app.R`.
 
 ## TCGA
 
