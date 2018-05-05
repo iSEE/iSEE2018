@@ -110,10 +110,9 @@ Individual panel types include:
 \begin{itemize}
 \item Column data plots, for visualizing sample metadata stored in the colData slot of the SummarizedExperiment object.
 \item Feature assay plots, for visualizing expression values for a particular feature (e.g., gene) across samples from any assay in the SummarizedExperiment object.
-Despite its name, this plot type is applicable to data modalities beyond gene expression.
 \item Row statistics tables, to present the contents of the rowData slot for the SummarizedExperiment object.
 \item Row data plots, for visualizing feature metadata stored in the rowData slot of the SummarizedExperiment object.
-\item Heat maps, to visualize assay data for multiple features where samples are ordered by one or more colData fields.
+\item Heatmaps, to visualize assay data for multiple features where samples are ordered by one or more colData fields.
 \item Reduced dimension plots, which display any two dimensions from pre-computed dimensionality reduction results (e.g., from PCA or $t$-SNE).
 These results are taken from the reducedDim slot if this is available in the object supplied to iSEE.
 \end{itemize}
@@ -123,12 +122,12 @@ These results are taken from the reducedDim slot if this is available in the obj
 \caption{iSEE uses a customisable multi-panel layout (A) that simultaneously displays one or more panels of various types, where each panel type visualizes a different aspect of the data.
 New panels of any type can be added (i), and all panels can be removed, reordered or resized (ii).
 Panel types are available to visualize sample-based reduced dimensionality embeddings (iii), sample-level metadata (iv), and experimental observations across samples for each feature (v).
-Other panel types include row statistics tables (vi), to facilitate searching across features and their metadata; heat maps (vii), to visualize experimental observations for multiple features; and feature-level metadata plots.
+Other panel types include row statistics tables (vi), to facilitate searching across features and their metadata; heatmaps (vii), to visualize experimental observations for multiple features; and feature-level metadata plots.
 Panels of each type are colour-coded for ease of interpretation.
 (B) Information can be transmitted between panels according to a user-specified scheme.
 Here, the selection of feature $X$ in the row statistics table determines the y-axis of the feature assay plot, and colours the samples in the reduced dimension plot by the expression of $X$.
 Selection of points in the reduced dimension plot (dotted blue line) also determines the samples that are shown in the column data (i.e., sample metadata) plot;
-further selection of points in the column data plot determines the samples that are shown in the heat map.
+further selection of points in the column data plot determines the samples that are shown in the heatmap.
 }
 \label{fig:iSEE}
 \end{figure*}
@@ -144,7 +143,7 @@ For ease of interpretation, the rectangle plot collapses to a mirrored bar plot 
 \subsection*{Custom panel colouring}
 Sample-based points can be coloured according to the values of any sample-level metadata field in the colData slot or by the assay values of a selected feature.
 Similarly, feature-based points can be coloured according to any feature-level metadata field in the rowData slot.
-Heat maps are coloured according to the expression values of the selected features in the chosen assay,
+Heatmaps are coloured according to the expression values of the selected features in the chosen assay,
 with additional colour annotation by each of the colData fields used to order the samples.
 In all cases, the variable to use for colouring can be dynamically selected for each plot.
 This enables users to easily examine relationships between different variables in a single plot. \\
@@ -167,7 +166,7 @@ This linking paradigm extends to multiple panels, whereby a panel can transmit t
 Chains of linked plots allow users to mimic the arbitrarily complex gating strategies often found in analyses of flow cytometry data \citep{finak2014opencyto}.
 With iSEE, this concept is extended to any assay data, feature-level or sample-level metadata present in a SummarizedExperiment object, providing a powerful framework for interrogating multiple interactions between data aspects.
 Row statistics tables can also transmit to various plot types, by selecting a table row to control the coloring of sample-based points;
-or by defining a subset of features to visualize in a heat map.
+or by defining a subset of features to visualize in a heatmap.
 Furthermore, row data plots can transmit to row statistics tables, whereby selection of points in the former will subset the latter.
 
 \subsection*{Code tracking and reproducibility}
