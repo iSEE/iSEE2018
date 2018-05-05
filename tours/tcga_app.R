@@ -1,38 +1,19 @@
 
-# User inputs ----
+# Tour steps ----
 
 tour_steps <- "tcga_tour.txt"
 stopifnot(file.exists(tour_steps))
+tour <- read.delim(tour_steps, sep=";", stringsAsFactors = FALSE,row.names = NULL)
 
 # Libraries ----
 
 stopifnot(require(iSEE))
-stopifnot(requireNamespace("ExperimentHub"))
-stopifnot(requireNamespace("scater"))
-stopifnot(requireNamespace("irlba"))
-stopifnot(requireNamespace("Rtsne"))
-
-# Preprocessing ----
-
-# Vignette demo
-
-ehub <- ExperimentHub::ExperimentHub()
-eh1 <- ehub[["EH1"]] # an ExpressionSet
-se1 <- as(eh1, "SummarizedExperiment")
-sce <- as(se1, "SingleCellExperiment")
-sce <- scater::runPCA(sce, exprs_values = "exprs")
-irlba_out <- irlba::irlba(assay(sce, "exprs"))
-tsne_out <- Rtsne::Rtsne(
-  irlba_out$v, pca = FALSE, perplexity = 50, verbose = TRUE)
-reducedDim(sce, "TSNE") <- tsne_out$Y
-
-# library size and CPM
-
-colData(sce)[,"lib_size"] <- colSums(assay(sce, "exprs"))
-assay(sce, "log2CPM") <-
-  log2(1 + t(t(assay(sce, "exprs")) / colData(sce)[,"lib_size"]))
 
 # Application setup ----
+
+if (length(ls(pattern = "sce")) != 1){
+  stop("Please run tcga_data.R first to generate the `sce` object.")
+}
 
 # Panel 1: colData (phenotype selection)
 # Y = CancerType
@@ -93,8 +74,8 @@ rd$LegendPosition <- "Right"
 rd$SelectBoxOpen <- TRUE
 rd$SelectByPlot <- c("Column data plot 1", "Column data plot 2")
 
-# Panel 3: feature expression (analysis)
-fe <- featExprPlotDefaults(sce, 2)
+# Panel 3: feature assay (analysis)
+fe <- featAssayPlotDefaults(sce, 2)
 # data
 fe$DataBoxOpen <- TRUE
 fe$Assay <- 2
@@ -117,22 +98,20 @@ initialPanels = DataFrame(
     Name = c(
       "Column data plot 1",
       "Reduced dimension plot 1",
-      "Feature expression plot 1"
+      "Feature assay plot 1"
     ),
     Width = c(
       3, # colData
       4, # reducedDim
-      5 # featExprs
+      5 # featAssays
     )
   )
 
-tour <- read.delim(tour_steps, sep=";", stringsAsFactors = FALSE,row.names = NULL)
-
 app <- iSEE(
   sce, tour = tour,
-  redDimArgs = rd, colDataArgs = cd, featExprArgs = fe,
+  redDimArgs = rd, colDataArgs = cd, featAssayArgs = fe,
   rowStatArgs = NULL, rowDataArgs = NULL, heatMapArgs = NULL,
-  redDimMax = 1, colDataMax = 1, featExprMax = 1,
+  redDimMax = 1, colDataMax = 1, featAssayMax = 1,
   rowStatMax = 1, rowDataMax = 1, heatMapMax = 1,
   initialPanels = initialPanels,
   appTitle = "TCGA RNA-seq tour")
