@@ -37,9 +37,9 @@ redDim <- DataFrame(ColorBy="Feature name", ColorByFeatName="Cux2",
                     FontSize=1.5, PointSize=1.5)
 colData <- DataFrame(YAxis="NALIGNED", XAxis="Column data", XAxisColData="PRIMER",
                      ColorBy="Column data", ColorByColData="passes_qc_checks_s",
-					 FontSize=1.5, PointSize=1.5)
+                     FontSize=1.5, PointSize=1.5)
 featAssay <- DataFrame(YAxisFeatName="Cux2", ColorBy="Column data", ColorByColData="driver_1_s",
-					 FontSize=1.5, PointSize=1.5)
+                       FontSize=1.5, PointSize=1.5)
 heatMap <- DataFrame(FeatName=I(list(c("Fam19a1", "Cacna2d3", "Cux2", "Rorb", "Ptn", "Lmo3", "Foxp2", "Lamp5", "Etv1"))),
                      ColData=I(list(c("driver_1_s"))))
 rowStat <- DataFrame(Selected="Cux2", Search="homeobox 2")
