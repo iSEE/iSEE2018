@@ -14,6 +14,7 @@
 \usepackage{f1000_styles}
 \usepackage{url}
 \usepackage{listings}
+\usepackage{hyperref}
 
 %% Default: numerical citations
 % \usepackage[numbers]{natbib}
@@ -76,17 +77,25 @@ Interactive data exploration is critical to the analysis and comprehension of th
 Exploration drives the formation of novel data-driven hypotheses prior to a more rigorous statistical analysis, and enables diagnosis of potential problems such as batch effects and low-quality samples.
 To this end, visualisation of the data using an intuitive and interactive interface is crucial for allowing researchers to examine the data from different perspectives across samples (e.g., experimental replicates, patients, single cells) and features (e.g., genes, transcripts, proteins, genomic regions).\\
 
-Most existing tools for interactive visualisation of biological data are designed for specific assays and analyses, e.g., pRoloc for proteomics \citep{gatto2014mass}, shinyMethyl for methylation \citep{fortin2014shinymethyl}, HTSvis for high-throughput screens \citep{scheeder2017htsvis}.
+Most existing tools for interactive visualisation of biological data are designed for specific assays and analyses, e.g., \href{https://bioconductor.org/packages/release/bioc/html/pRoloc.html}{pRoloc} for proteomics \citep{gatto2014mass}, \href{http://bioconductor.org/packages/release/bioc/html/shinyMethyl.html}{shinyMethyl} for methylation \citep{fortin2014shinymethyl}, \href{http://htsvis.dkfz.de/HTSvis/}{HTSvis} for high-throughput screens \citep{scheeder2017htsvis}.
 Opportunities for customisation are generally limited, making it difficult to re-use the same visualisation software for new technologies or experimental designs where different aspects of the data are of interest.
-Moreover, standalone tools such as the Loupe Cell Browser from 10x Genomics \citep{zheng2017massively} do not easily integrate into established analysis pipelines such as those based on the R statistical programming language \citep{rcore2008R}.
+Moreover, standalone tools such as the \href{https://support.10xgenomics.com/single-cell-gene-expression/software/visualization/latest/what-is-loupe-cell-browser}{Loupe Cell Browser} from 10x Genomics \citep{zheng2017massively} do not easily integrate into established analysis pipelines such as those based on the R statistical programming language \citep{rcore2008R}.
 This complicates any coordinated use of these tools with a reproducible, transparent, and statistically rigorous analysis.\\
 
 Here, we present the iSEE software package for interactive data exploration.
-iSEE is implemented in R using the Shiny framework \citep{chang2017shiny} and exploits data structures from the open-source Bioconductor project \citep{gentleman2004bioconductor}, specifically the SummarizedExperiment class.
+iSEE is implemented in R using the \href{https://shiny.rstudio.com/}{Shiny framework}  \citep{chang2017shiny} and exploits data structures from the open-source \href{https://www.bioconductor.org/}{Bioconductor project}  \citep{gentleman2004bioconductor}, specifically the SummarizedExperiment class.
 iSEE allows users to simultaneously visualise multiple aspects of a given data set, including experimental data, metadata and analysis results.
 Dynamic linking and point selection facilitate the flexible exploration of interactions between different data aspects.
 Additional functionalities include code tracking, intelligent downsampling of large data sets, custom colour scale specification and tour construction.
 We demonstrate the capabilities of iSEE by applying it to a diverse range of real data sets.
+
+\section*{Operation}
+% * <research@f1000.com> 2018-05-14T09:51:45.749Z:
+% 
+% > Operation
+% please complete this section regarding the minimal system requirements for your software tool and an overview of the work flow
+% 
+% ^.
 
 \section*{Taking a SummarizedExperiment input}
 The iSEE interface is initialised with a single function call accepting a SummarizedExperiment object as input \citep{huber2015orchestrating}.
@@ -104,12 +113,12 @@ This complements the state-of-the-art analysis workflows and methodologies alrea
 
 \subsection*{Using a multi-panel layout}
 All data aspects stored in a SummarizedExperiment can be simultaneously examined in the multi-panel layout of the iSEE interface (Fig.~\ref{fig:iSEE}A).
-The interface layout is built using the shinydashboard package \citep{chang2018shinydashboard}, using colour-coded panels to visualise each data aspect.
+The interface layout is built using the \href{https://rstudio.github.io/shinydashboard/}{shinydashboard} package \citep{chang2018shinydashboard}, using colour-coded panels to visualise each data aspect.
 Individual panel types include:
 
 \begin{itemize}
 \item Column data plots, for visualising sample metadata stored in the colData slot of the SummarizedExperiment object.
-\item Feature assay plots, for visualising expression values for a particular feature (e.g., gene) across samples from any assay in the SummarizedExperiment object.
+\item Feature assay plots, for visualising expression values for a particular feature (e.g. gene) across samples from any assay in the SummarizedExperiment object.
 \item Row statistics tables, to present the contents of the rowData slot for the SummarizedExperiment object.
 \item Row data plots, for visualising feature metadata stored in the rowData slot of the SummarizedExperiment object.
 \item Heatmaps, to visualise assay data for multiple features where samples are ordered by one or more colData fields.
@@ -135,7 +144,7 @@ further selection of points in the column data plot determines the samples that 
 Each sample is represented as a point in column data, feature assay and reduced dimension plots.
 Similarly, each feature is represented by a point in row data plots.
 For these panel types, a scatter plot is automatically produced if the selected variables on the x- and y-axes are both continuous.
-If exactly one variable is categorical, points are grouped by the categorical levels and a (vertical or horisontal) violin plot is produced with points scattered within each violin.
+If exactly one variable is categorical, points are grouped by the categorical levels and a (vertical or horizontal) violin plot is produced with points scattered within each violin.
 If both variables are categorical, a ``rectangle plot'' is produced where each combination of categorical levels is represented by a rectangle with area proportional to the frequency of that combination.
 Points are scattered randomly within each rectangle.
 For ease of interpretation, the rectangle plot collapses to a mirrored bar plot when one of the categorical variables only has one level.
@@ -148,7 +157,7 @@ with additional colour annotation by each of the colData fields used to order th
 In all cases, the variable to use for colouring can be dynamically selected for each plot.
 This enables users to easily examine relationships between different variables in a single plot. \\
 
-By default, colour maps for categorical and continuous variables are taken from the ggplot2 \citep{wickham2009ggplot2} and viridis packages \citep{garnier2018viridis}, respectively.
+By default, colour maps for categorical and continuous variables are taken from the \href{http://ggplot2.tidyverse.org/}{ggplot2}  \citep{wickham2009ggplot2} and \href{https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html}{viridis} packages \citep{garnier2018viridis}, respectively.
 However, iSEE also implements the ExperimentColorMap class, which allows users to specify arbitrary colour maps for particular variables.
 Each colour map is a function that returns a vector of distinct colours of a specified length, and will be called whenever the associated variable is used for point colouring in a particular panel.
 The returned colours will be mapped to factor levels for categorical variables, or used in colour interpolation for continuous variables.
@@ -178,9 +187,9 @@ Similarly, the code required to reproduce the current state of the interface can
 This can be used in startup scripts to launch an iSEE instance in any preferred layout, including the panel organisation, variable selection, colouring schemes, links between panels and even individual brushes and lasso selections.
 
 \subsection*{Additional functionalities}
-Row statistics tables can be augmented with dynamic annotation based on the selected row, linking to online resources such as Ensembl \citep{zerbino2018ensembl} or Entrez \citep{ncbi2017entrez}. % do we need to cite them? at least ENSEMBL has updated citable papers
+Row statistics tables can be augmented with dynamic annotation based on the selected row, linking to online resources such as \href{https://www.ensembl.org/index.html}{Ensembl} \citep{zerbino2018ensembl} or  \href{https://www.ncbi.nlm.nih.gov/Class/MLACourse/Original8Hour/Entrez/}{Entrez} \citep{ncbi2017entrez}. % do we need to cite them? at least ENSEMBL has updated citable papers
 For large data sets, points can be downsampled in a density-dependent manner to accelerate rendering of the plots, improving the responsiveness of the interface without compromising the fidelity of the visualisation.
-Users can also include a bespoke step-by-step ``tour'' of their data set via the rintrojs package \cite{ganz2016rintrojs}, guiding the audience through an examination of the salient features in the data.
+Users can also include a bespoke step-by-step ``tour'' of their data set via the \href{https://introjs.com/}{rintrojs} package \cite{ganz2016rintrojs}, guiding the audience through an examination of the salient features in the data.
 
 \section*{Use cases} % FM: used often in other software articles in F1000res
 
@@ -188,25 +197,25 @@ Users can also include a bespoke step-by-step ``tour'' of their data set via the
 To demonstrate iSEE's functionality, we used it to explore a plate-based single-cell RNA sequencing (scRNA-seq) data set involving 379 cells from the mouse visual cortex \citep{tasic2016allen}.
 This demonstration guides the user through the main features of the iSEE interface including the multi-panel layout, colouring and dynamic linking.\\
 
-Link: \url{http://shiny.imbei.uni-mainz.de:3838/iSEE/}
+An interactive tour of this use case can be viewed \href{http://shiny.imbei.uni-mainz.de:3838/iSEE/}{here}
 
 \subsection*{Droplet-based single-cell RNA sequencing}
 We applied iSEE to a larger scRNA-seq data set involving 4,000 peripheral blood mononuclear cells (PBMCs), generated by 10x Genomics \citep{zheng2017massively}.
 This demonstration explores the differences between different methods for distinguishing cells from empty droplets in droplet-based scRNA-seq protocols \citep{lun2018distinguishing}.\\
 
-Link: \url{http://shiny.imbei.uni-mainz.de:3838/iSEE_PBMC4k/}
+An interactive tour of this use case can be viewed \href{http://shiny.imbei.uni-mainz.de:3838/iSEE_PBMC4k/}{here}
 
 \subsection*{Bulk RNA sequencing from TCGA}
 We applied iSEE to bulk RNA sequencing data from The Cancer Genome Atlas (TCGA) project, using a subset of expression profiles involving 7,706 tumor samples \citep{piccolo2015TCGA}.
 This demonstration examines the elevation of \textit{HER2} expression in breast cancer samples.\\
 
-Link: \url{http://shiny.imbei.uni-mainz.de:3838/iSEE_TCGA/}
+An interactive tour of this use case can be viewed \href{http://shiny.imbei.uni-mainz.de:3838/iSEE_TCGA/}{here}
 
 \subsection*{Mass cytometry}
 Finally, we explored a mass cytometry study involving more than 170,000 PBMCs from multiple donors before and after stimulation with BCR/FcR-XL \citep{bodenmiller2012cytof}.
 We used iSEE to visualise and refine a gating analysis to obtain B cells, and to investigate differences in expression of the functional marker pS6 after stimulation.\\
 
-Link: \url{http://shiny.imbei.uni-mainz.de:3838/iSEE_cytof/}
+An interactive tour of this use case can be viewed \href{http://shiny.imbei.uni-mainz.de:3838/iSEE_cytof/}{here}
 
 \section*{Conclusion}
 iSEE provides a general interactive interface for visual exploration of high-throughput biological data sets.
@@ -216,20 +225,28 @@ and provides transparency and reproducibility during the interactive analysis, t
 The most obvious use of iSEE is that of data exploration for hypothesis generation during the course of a research project.
 However, we also anticipate that public instances of iSEE will accompany publications to enable authors to showcase salient aspects of their work using guided tours.
 
-\section*{Data and software availability}
+\section*{Software availability}
+% * <research@f1000.com> 2018-05-14T10:15:33.183Z:
+% 
+% > Data and software availability
+% please provide an archived version of you code and the licence under which it can be used, see email
+% 
+% ^.
 The iSEE package is available at \url{https://bioconductor.org/packages/iSEE}.
 Source code of the development version of the package is available at \url{https://github.com/csoneson/iSEE}.
 Code for the demonstrations and tours is available at \url{https://github.com/LTLA/iSEE2018}.
+% * <research@f1000.com> 2018-05-14T10:10:51.545Z:
+% 
+% The author contribution section has been deleted, since CRediT was filled in on submission and will be used for the Author Contributions section.
+% 
+% ^.
+\section*{Data availability }
 
-\section*{Author contributions}
-All authors contributed conceptually and technically to the development and maintenance of large sections of the package code.
-ATLL and FM developed the application and data infrastructure.
-KRA and CS developed the plotting framework.
-FM developed the code tracking and user interface.
-KRA designed and developed the ExperimentColorMap class.
-All authors contributed to testing the application on all data sets.
-All authors wrote and approved the final manuscript.
-
+Data used in the described use cases is available from the following articles: \\
+\url{http://doi.org/10.1038/nn.4216}\citep{tasic2016allen} \\
+\url{http://doi.org/10.1038/ncomms14049}\citep{zheng2017massively} \\
+\url{https://doi.org/10.1093/bioinformatics/btv377}\citep{piccolo2015TCGA} \\
+\url{https://doi.org/10.1038/nbt.2317}\citep{bodenmiller2012cytof} \\
 \section*{Competing interests}
 No competing interests were declared.
 
@@ -240,7 +257,13 @@ The work of FM is supported by the German Federal Ministry of Education and Rese
 \section*{Acknowledgements}
 We thank the organisers and participants of the European Bioconductor Meeting 2017, where the idea for this package was first conceived.
 We also thank members of the Bioconductor community for their helpful suggestions.
-Finally, we thank John Marioni and Mark Robinson for helpful comments on the manuscript.
+Finally, we thank John Marioni for helpful comments on the manuscript.
+% * <research@f1000.com> 2018-05-14T10:11:46.639Z:
+% 
+% > John Marioni 
+% please confirm you have permission to name them in your manuscript 
+% 
+% ^.
 
 {\small\bibliographystyle{unsrtnat}
 \bibliography{ref}}
