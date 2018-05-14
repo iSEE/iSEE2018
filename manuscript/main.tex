@@ -90,15 +90,11 @@ Additional functionalities include code tracking, intelligent downsampling of la
 We demonstrate the capabilities of iSEE by applying it to a diverse range of real data sets.
 
 \section*{Operation}
-% * <research@f1000.com> 2018-05-14T09:51:45.749Z:
-% 
-% > Operation
-% please complete this section regarding the minimal system requirements for your software tool and an overview of the work flow
-% 
-% ^.
+The iSEE software package requires R version 3.5.0 or higher, along with packages from Bioconductor version 3.7 or higher.
+The interface is initialised with a single call to the \texttt{iSEE()} function, accepting a SummarizedExperiment object \citep{huber2015orchestrating} as input.
+Any analysis workflow that generates a SummarizedExperiment object is supported.
 
-\section*{Taking a SummarizedExperiment input}
-The iSEE interface is initialised with a single function call accepting a SummarizedExperiment object as input \citep{huber2015orchestrating}.
+\section*{Motivation for using the SummarizedExperiment class}
 Each instance of the SummarizedExperiment class stores one or more matrices of experimental observations as ``assays'', where rows and columns represent genomic features and biological samples, respectively.
 For instance, individual assays may represent gene expression matrices, either in the form of raw counts or as values obtained by different normalisation strategies.
 In addition, per-feature or per-sample variables are stored in the ``rowData'' and ``colData'' slots, respectively; these may include experimental metadata as well as any analysis results.\\
@@ -226,27 +222,17 @@ The most obvious use of iSEE is that of data exploration for hypothesis generati
 However, we also anticipate that public instances of iSEE will accompany publications to enable authors to showcase salient aspects of their work using guided tours.
 
 \section*{Software availability}
-% * <research@f1000.com> 2018-05-14T10:15:33.183Z:
-% 
-% > Data and software availability
-% please provide an archived version of you code and the licence under which it can be used, see email
-% 
-% ^.
-The iSEE package is available at \url{https://bioconductor.org/packages/iSEE}.
+The iSEE package is available at \url{https://bioconductor.org/packages/iSEE} under the MIT license.
 Source code of the development version of the package is available at \url{https://github.com/csoneson/iSEE}.
 Code for the demonstrations and tours is available at \url{https://github.com/LTLA/iSEE2018}.
-% * <research@f1000.com> 2018-05-14T10:10:51.545Z:
-% 
-% The author contribution section has been deleted, since CRediT was filled in on submission and will be used for the Author Contributions section.
-% 
-% ^.
-\section*{Data availability }
 
+\section*{Data availability }
 Data used in the described use cases is available from the following articles: \\
 \url{http://doi.org/10.1038/nn.4216}\citep{tasic2016allen} \\
 \url{http://doi.org/10.1038/ncomms14049}\citep{zheng2017massively} \\
 \url{https://doi.org/10.1093/bioinformatics/btv377}\citep{piccolo2015TCGA} \\
 \url{https://doi.org/10.1038/nbt.2317}\citep{bodenmiller2012cytof} \\
+
 \section*{Competing interests}
 No competing interests were declared.
 
@@ -257,13 +243,7 @@ The work of FM is supported by the German Federal Ministry of Education and Rese
 \section*{Acknowledgements}
 We thank the organisers and participants of the European Bioconductor Meeting 2017, where the idea for this package was first conceived.
 We also thank members of the Bioconductor community for their helpful suggestions.
-Finally, we thank John Marioni for helpful comments on the manuscript.
-% * <research@f1000.com> 2018-05-14T10:11:46.639Z:
-% 
-% > John Marioni 
-% please confirm you have permission to name them in your manuscript 
-% 
-% ^.
+Finally, we thank John Marioni and Mark Robinson for their helpful comments on the manuscript.
 
 {\small\bibliographystyle{unsrtnat}
 \bibliography{ref}}
