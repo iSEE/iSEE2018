@@ -5,7 +5,7 @@ element;intro
 #colDataPlot1_DataBoxOpen;<p align="left">Sample metadata shown on the X and Y axes were set using the <i>Data parameters</i> box.</p>
 #colDataPlot1_VisualBoxOpen;<p align="left">Similarly, the <i>Visual parameters</i> box provides control over the color, point and other aspects of the data points.</p>
 #colDataPlot1_ColorBy;<p align="left">Here, we reinforce the cancer type information by color.</p>
-#colDataPlot1_Downsample;<p align="left">Given the considerable number of samples, we visually downsample data points to display and update panels more rapidly.</p><p align="left">Note: Downsampling only has a <em>visual</em> effect. Hidden data points are still included in selections.</p>
+#colDataPlot1_Downsample;<p align="left">Given the considerable number of samples, we visually downsample data points to display and update panels more rapidly.</p><p align="left">Note that downsampling only has a <em>visual</em> effect. Hidden data points are still included in selections.</p>
 #colDataPlot1_LegendPosition;<p align="left">Lastly, we also moved the legend to the right of the plotting panel (the default is 'Bottom').</p>
 #colDataPlot1_PanelGeneralInfo;<p align="left">Conveniently, the count and proportion of samples selected is shown whenever an active selection is detected.</p>
 #colDataPlot1_PanelLinkInfo;<p align="left">Furthermore, any incoming or outgoing selection link with another panel is reported here.</p><p align="left">In this example, the panel is sending its point selection to two other panels that we will examine in a moment.</p>
