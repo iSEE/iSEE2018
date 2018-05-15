@@ -31,7 +31,7 @@ fd$ColorByColData <- c(rep("sample_id", 3), rep("group_id", 3))
 
 ## Downsampling
 fd$Downsample <- TRUE
-fd$SampleRes <- 100
+fd$SampleRes <- 200
 
 ## Point selection
 fd$SelectByPlot <- c("", "", "", "", "Feature assay plot 4", "Feature assay plot 5")
