@@ -1,8 +1,8 @@
 element;intro
-#Welcome;This tour illustrates a gating analysis and subsequent investigation of a functional marker between sample groups, using a CyTOF (mass cytometry) data set from Bodenmiller et al (Nat Biotechnol, 2012)
-#Welcome;The data set contains measurements for 172,791 cells from 16 samples, derived from eight donors. There is one unstimulated sample and one sample stimulated with BCR/FcR-XL from each donor. For each cell, there are measurements of 24 protein markers and a number of additional characteristics such as cell size and DNA content. The data set has been debarcoded and preprocessed to remove doublets, debris and dead cells as described in Nowicka et al (F1000Research, 2017). 
+#Welcome;This tour illustrates a gating analysis and subsequent investigation of a functional marker between sample groups, using a CyTOF (mass cytometry) data set from <a href="https://www.nature.com/articles/nbt.2317">Bodenmiller et al. (Nat Biotechnol, 2012)</a>. <br/><br/><font color="##FF0000"><strong>NOTE:</strong></font> if the tour is not jumping to the correct UI elements, exit by clicking anywhere else on the app, and click on the top-right question mark to start a new tour.
+#Welcome;The data set contains measurements for 172,791 cells from 16 samples, derived from eight donors. There is one unstimulated sample and one sample stimulated with BCR/FcR-XL from each donor. For each cell, there are measurements of 24 protein markers and a number of additional characteristics such as cell size and DNA content. The data set has been debarcoded and preprocessed to remove doublets, debris and dead cells as described in <a href="https://f1000research.com/articles/6-748/v2">Nowicka et al. (F1000Research, 2017)</a>. 
 #featAssayPlot1;The 16 samples were barcoded using a combinatorial barcoding scheme. This plot illustrates the measured abundance of one of the barcodes (BC2) across the 16 samples. 
-#featAssayPlot1_DataBoxOpen;The selection of what to show on the x- and y-axes is done in the Data parameters box.
+#featAssayPlot1_DataBoxOpen;The selection of what to show on the x- and y-axes is done in the <font color="#402ee8">Data parameters</font> box.
 #featAssayPlot1_VisualBoxOpen;The visual parameters of the plot are set here.
 #featAssayPlot1_ColorBy;We have chosen to color the points by the inferred sample ID.
 #featAssayPlot1_Downsample;Due to the large number of cells in the data set, we also downsample the points for plotting, to increase the speed of the visualization.
@@ -11,11 +11,11 @@ element;intro
 #featAssayPlot4;Next, using the cells from all the donors, we gate the cells with the aim of extracting IgM-negative B-cells for further analysis. Following the gating scheme from the original publication, we first consider the CD3 and CD20 markers, and select the cells with high CD20 expression to get the B-cells. This selection is done directly in iSEE, by drawing a rectangle around the cells of interest. 
 #featAssayPlot4_PanelGeneralInfo;Below the plot we can directly see the number of selected cells.
 #featAssayPlot5;Having selected the B-cells in the previous gating plot, we want to restrict our attention to these cells only, and further select only IgM-negative cells. Again following the gating scheme in the original publication, our next gating plot shows IgM vs CD45. 
-#featAssayPlot5_SelectBoxOpen;In order to restrict this plot to only the B-cells selected in the previous panel, we need to link the plots together, which is done in the Selection parameters box. 
-#featAssayPlot5_SelectBoxOpen;Here, we set the current plot to receive the selection of points from Feature assay plot 4. 
-#featAssayPlot5_SelectEffect;By setting the selection effect to Restrict, only the points selected in Feature assay plot 4 are shown in the current plot. 
+#featAssayPlot5_SelectBoxOpen;In order to restrict this plot to only the B-cells selected in the previous panel, we need to link the plots together, which is done in the <font color="#402ee8">Selection parameters</font> box. 
+#featAssayPlot5_SelectBoxOpen;Here, we set the current plot to receive the selection of points from <font color="#402ee8">Feature assay plot 4</font>. 
+#featAssayPlot5_SelectEffect;By setting the selection effect to Restrict, only the points selected in <font color="#402ee8">Feature assay plot 4</font> are shown in the current plot. 
 #featAssayPlot4_PanelLinkInfo;The linking of the plots is recorded in iSEE and displayed under the respective panels, both for the transmitting...
 #featAssayPlot5_PanelLinkInfo;...and receiving panels.
 #featAssayPlot6;After selecting IgM-negative B-cells, we now investigate the expression of the functional marker pS6 in the unstimulated and stimulated samples. 
-#featAssayPlot6_SelectBoxOpen;To achieve this, we restrict the set of points in the final panel to those selected in Feature assay plot 5. 
-#featAssayPlot6;The resulting plot shows that pS6 is more highly expressed in the B-cells of the stimulated samples than in the unstimulated samples, confirming the observation made in Bruggner et al (PNAS, 2014).
+#featAssayPlot6_SelectBoxOpen;To achieve this, we restrict the set of points in the final panel to those selected in <font color="#402ee8">Feature assay plot 5</font>. 
+#featAssayPlot6;The resulting plot shows that pS6 is more highly expressed in the B-cells of the stimulated samples than in the unstimulated samples, confirming the observation made in <a href="http://www.pnas.org/content/111/26/E2770.long">Bruggner et al. (PNAS, 2014)</a>.
