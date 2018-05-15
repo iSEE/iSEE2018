@@ -33,7 +33,7 @@ cd$ColorByColData <- "CancerType"
 cd$VisualChoices[[1]] <- c("Color", "Points", "Other")
 cd$PointAlpha <- 0.25
 cd$Downsample <- TRUE
-cd$SampleRes <- 100
+cd$SampleRes <- 200
 cd$LegendPosition <- "Right"
 # point selection
 cd$BrushData <- list(
@@ -68,7 +68,7 @@ rd$VisualChoices[[1]] <- c("Color", "Points", "Other")
 rd$ColorBy <- "Column data"
 rd$ColorByColData <- "CancerType"
 rd$Downsample <- TRUE
-rd$SampleRes <- 100
+rd$SampleRes <- 200
 rd$LegendPosition <- "Right"
 # select
 rd$SelectBoxOpen <- TRUE
@@ -86,7 +86,7 @@ fe$YAxisFeatName <- match("ERBB2", rownames(sce))
 fe$VisualBoxOpen <- TRUE
 fe$VisualChoices[[1]] <- c("Points")
 fe$Downsample <- TRUE
-fe$SampleRes <- 100
+fe$SampleRes <- 200
 # select
 fe$SelectBoxOpen <- TRUE
 fe$SelectByPlot <- c("Column data plot 1", "Column data plot 2")
