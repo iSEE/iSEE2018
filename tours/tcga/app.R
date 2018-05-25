@@ -1,19 +1,8 @@
+library(iSEE)
 
-# Tour steps ----
+sce <- readRDS("sce.rds")
+tour <- read.delim("tour.txt", sep=";", stringsAsFactors = FALSE,row.names = NULL)
 
-tour_steps <- "tcga_tour.txt"
-stopifnot(file.exists(tour_steps))
-tour <- read.delim(tour_steps, sep=";", stringsAsFactors = FALSE,row.names = NULL)
-
-# Libraries ----
-
-stopifnot(require(iSEE))
-
-# Application setup ----
-
-if (length(ls(pattern = "sce")) != 1){
-  stop("Please run tcga_data.R first to generate the `sce` object.")
-}
 
 # Panel 1: colData (phenotype selection)
 # Y = CancerType
@@ -107,7 +96,7 @@ initialPanels = DataFrame(
     )
   )
 
-app <- iSEE(
+iSEE(
   sce, tour = tour,
   redDimArgs = rd, colDataArgs = cd, featAssayArgs = fe,
   rowStatArgs = NULL, rowDataArgs = NULL, heatMapArgs = NULL,
@@ -115,5 +104,3 @@ app <- iSEE(
   rowStatMax = 1, rowDataMax = 1, heatMapMax = 1,
   initialPanels = initialPanels,
   appTitle = "TCGA RNA-seq tour")
-
-shiny::runApp(app)
