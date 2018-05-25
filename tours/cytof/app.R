@@ -1,8 +1,7 @@
-## Read tour steps
-tour_steps <- read.delim("cytof_tour.txt", header = TRUE, as.is = TRUE, sep = ";")
+library(iSEE)
 
-## Packages
-stopifnot(require(iSEE))
+tour_steps <- read.delim("tour.txt", header = TRUE, as.is = TRUE, sep = ";")
+bcrxl <- readRDS("sce.rds")
 
 ## Set up panels (6 feature assay plots)
 fd <- featAssayPlotDefaults(bcrxl, 6)
