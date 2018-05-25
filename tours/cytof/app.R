@@ -48,4 +48,4 @@ iSEE(bcrxl, tour = tour_steps,
      featAssayMax = nrow(fd),
      rowStatMax = 0, rowDataMax = 0, heatMapMax = 0,
      initialPanels = initialPanels,
-     appTitle = "CyTOF data tour")
+     appTitle = "Analyzing mass cytometry data with complex gating schemes")
