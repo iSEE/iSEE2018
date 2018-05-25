@@ -3,7 +3,6 @@ library(iSEE)
 sce <- readRDS("sce.rds")
 tour <- read.delim("tour.txt", sep=";", stringsAsFactors = FALSE,row.names = NULL)
 
-
 # Panel 1: colData (phenotype selection)
 # Y = CancerType
 # X = Gender
@@ -103,4 +102,4 @@ iSEE(
   redDimMax = 1, colDataMax = 1, featAssayMax = 1,
   rowStatMax = 1, rowDataMax = 1, heatMapMax = 1,
   initialPanels = initialPanels,
-  appTitle = "TCGA RNA-seq tour")
+  appTitle = "Exploring the TCGA RNA-seq data after re-processing")
