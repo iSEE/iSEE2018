@@ -16,15 +16,23 @@ Each tour is composed of three files:
 
 To launch a tour, successively execute `data.R` and `app.R`.
 
+## Allen
+
+The `data.R` script uses the Allen data subset in the the [_scRNAseq_](http://bioconductor.org/packages/release/data/experiment/html/scRNAseq.html) Bioconductor package.
+It performs a small number of pre-processing steps (e.g., normalization, dimensionality reduction) before saving a serialized `SingleCellExperiment` object to file.
+
+**Live demo:** https://http://marionilab.cruk.cam.ac.uk/iSEE_allen
+
 ## TCGA
 
-The `data.R` script fetches the TCGA data set from the Bioconductor [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) in the form of an `ExpressionSet`, and performs a small number of preprocessing steps (e.g., PCA, _t_-SNE) before launching the app and the tour.
+The `data.R` script fetches the TCGA data set from the Bioconductor [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) in the form of an `ExpressionSet`.
+It converts this to a `SingleCellExperiment` object and performs a small number of preprocessing steps (e.g., PCA, _t_-SNE) before saving the object to file.
 
 **Note:** the first time that the script is run, it may take a few extra minutes, as it downloads and caches a copy of the data set if you haven't one already. 
 Subsequent runs of the script will launch the tour significantly faster, as they will use the locally cached data set. 
 Refer to the documentation of the [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) for further details.
 
-Demo: http://shiny.imbei.uni-mainz.de:3838/iSEE_TCGA/
+**Live demo:** https://http://marionilab.cruk.cam.ac.uk/iSEE_tcga
 
 ## PBMC 4K
 
@@ -36,11 +44,11 @@ This can be achieved by following these steps:
 Modify the `fname` variable according to the path to the unpacked PBMC data files.
 3. Move the generated `sce.rds` object into `tours/` and run `pbmc4k_app.R`.
 
-Demo: http://shiny.imbei.uni-mainz.de:3838/iSEE_PBMC4k/
+**Live demo:** https://http://marionilab.cruk.cam.ac.uk/iSEE_pbmc4k
 
 ## CyTOF
 
 The `data.R` script downloads a preprocesed version of the data set from [Bodenmiller et al (2012)](https://www.nature.com/articles/nbt.2317). 
 See the [`HDCytoData`](http://bioconductor.org/packages/HDCytoData/) package for more information about how the data was processed. 
 
-Demo: http://shiny.imbei.uni-mainz.de:3838/iSEE_cytof/
+**Live demo:** https://http://marionilab.cruk.cam.ac.uk/iSEE_cytof
