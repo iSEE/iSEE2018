@@ -38,7 +38,7 @@ init <- DataFrame(Name=c("Reduced dimension plot 1",
                   Width=c(4,4,4,8,4))
 
 # Setting up a tour.
-tour <- read.delim("pbmc4k_tour.txt", header=TRUE, sep=";", comment.char="", quote="")
+tour <- read.delim("tour.txt", header=TRUE, sep=";", comment.char="", quote="")
 
 # Running the app.
 iSEE(sce, redDimArgs=redDim, colDataArgs=colData, featAssayArgs=featAssay, heatMapArgs=heatMap, rowDataMax=0, rowStatArgs=rowStat,
