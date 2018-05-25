@@ -1,8 +1,5 @@
 library(iSEE)
 library(SingleCellExperiment)
-
-# Obtain an SCE object by running the vignette at:
-# https://github.com/MarioniLab/EmptyDrops2017/tree/master/analysis/pbmc4k/analysis.Rmd
 sce <- readRDS("sce.rds")
 
 # Setting up defaults for all panels.
