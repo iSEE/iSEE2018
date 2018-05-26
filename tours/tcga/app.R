@@ -1,7 +1,7 @@
 library(iSEE)
 
 sce <- readRDS("sce.rds")
-tour <- read.delim("tour.txt", sep=";", stringsAsFactors = FALSE,row.names = NULL)
+tour <- read.delim("tour.txt", sep=";", stringsAsFactors = FALSE, row.names = NULL)
 
 # Panel 1: colData (phenotype selection)
 # Y = CancerType
