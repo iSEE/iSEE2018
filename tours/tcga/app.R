@@ -27,7 +27,7 @@ cd$LegendPosition <- "Right"
 cd$BrushData <- list(
   # (female BRCA patients)
   list(
-    xmin = 0.45, xmax = 1.55, ymin = 1.45, ymax = 2.55, mapping = list(x = "X", y = "Y"),
+    xmin = 0.45, xmax = 1.55, ymin = 2.45, ymax = 3.55, mapping = list(x = "X", y = "Y"),
     domain = list(left = 0.4, right = 2.6, bottom = 0.4, top = 20.6), range = list(
         left = 55.8972468964041, right = 253.520547945205, bottom = 432.984589041096,
         top = 24.0290131340161), log = list(x = NULL, y = NULL), direction = "xy",

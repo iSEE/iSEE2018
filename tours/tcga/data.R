@@ -9,9 +9,28 @@ library(edgeR)
 
 ehub <- ExperimentHub::ExperimentHub()
 eh1 <- ehub[["EH1"]] # an ExpressionSet
+eh1044 <- ehub[["EH1044"]] # a SummarizedExperiment
+
 se1 <- as(eh1, "SummarizedExperiment")
-sce <- as(se1, "SingleCellExperiment")
-assayNames(sce) <- "counts"
+sce1 <- as(se1, "SingleCellExperiment")
+sce1044 <- as(eh1044, "SingleCellExperiment")
+
+
+eh1044_colData <- colData(se1)
+eh1044_colData <- eh1044_colData[seq_len(ncol(sce1044)),]
+for (colname in colnames(eh1044_colData)) {
+    eh1044_colData[[colname]] <- NA
+}
+eh1044_colData$CancerType <- "CNTL"
+rownames(eh1044_colData) <- colnames(sce1044)
+colData(sce1044) <- eh1044_colData
+
+assayNames(sce1) <- "counts"
+assayNames(sce1044) <- "counts"
+
+sce <- cbind(sce1, sce1044)
+
+colData(sce)[,"CancerType"] <- relevel(colData(sce)[,"CancerType"], "CNTL")
 
 # Add library size and CPM
 
