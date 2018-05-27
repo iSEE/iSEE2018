@@ -15,22 +15,28 @@ se1 <- as(eh1, "SummarizedExperiment")
 sce1 <- as(se1, "SingleCellExperiment")
 sce1044 <- as(eh1044, "SingleCellExperiment")
 
+# Prepare colData of identical dimensions prior to merging
+# In addition, add a "CNTL" colData field to differentiate control and cancer samples
 
-eh1044_colData <- colData(se1)
-eh1044_colData <- eh1044_colData[seq_len(ncol(sce1044)),]
-for (colname in colnames(eh1044_colData)) {
-    eh1044_colData[[colname]] <- NA
-}
-eh1044_colData$CancerType <- "CNTL"
-rownames(eh1044_colData) <- colnames(sce1044)
-colData(sce1044) <- eh1044_colData
+sce1044_colData <- DataFrame(matrix(
+  data = NA, nrow = ncol(sce1044), ncol = ncol(colData(sce1)),
+  dimnames = list(colnames(sce1044), colnames(colData(sce1)))
+  ))
+sce1044_colData$bcr_patient_barcode <- rownames(sce1044_colData)
+sce1044_colData$CancerType <- sce1044$type
+sce1044_colData$CNTL <- factor(TRUE, c(TRUE, FALSE))
+colData(sce1044) <- sce1044_colData
+
+sce1$CNTL <- factor(FALSE, c(TRUE, FALSE))
+
+# Rename identical "counts" assay names prior to merging
 
 assayNames(sce1) <- "counts"
 assayNames(sce1044) <- "counts"
 
-sce <- cbind(sce1, sce1044)
+# Merge the two objects
 
-colData(sce)[,"CancerType"] <- relevel(colData(sce)[,"CancerType"], "CNTL")
+sce <- cbind(sce1, sce1044)
 
 # Add library size and CPM
 
