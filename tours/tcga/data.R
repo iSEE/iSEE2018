@@ -29,6 +29,10 @@ colData(sce1044) <- sce1044_colData
 
 sce1$CNTL <- factor(FALSE, c(TRUE, FALSE))
 
+# Keep only controls for the available cancer types
+sce1044 <- sce1044[,sce1044$CancerType %in% sce1$CancerType]
+sce1044$CancerType <- droplevels(sce1044$CancerType)
+
 # Rename identical "counts" assay names prior to merging
 
 assayNames(sce1) <- "counts"
