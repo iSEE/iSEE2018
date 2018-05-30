@@ -21,7 +21,7 @@ To launch a tour, successively execute `data.R` and `app.R`.
 The `data.R` script uses the Allen data subset in the the [_scRNAseq_](http://bioconductor.org/packages/release/data/experiment/html/scRNAseq.html) Bioconductor package.
 It performs a small number of pre-processing steps (e.g., normalization, dimensionality reduction) before saving a serialized `SingleCellExperiment` object to file.
 
-**Live demo:** https://http://marionilab.cruk.cam.ac.uk/iSEE_allen
+**Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_allen
 
 ## TCGA
 
@@ -32,7 +32,7 @@ It converts this to a `SingleCellExperiment` object and performs a small number 
 Subsequent runs of the script will launch the tour significantly faster, as they will use the locally cached data set. 
 Refer to the documentation of the [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) for further details.
 
-**Live demo:** https://http://marionilab.cruk.cam.ac.uk/iSEE_tcga
+**Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_tcga
 
 ## PBMC 4K
 
@@ -44,11 +44,11 @@ This can be achieved by following these steps:
 Modify the `fname` variable according to the path to the unpacked PBMC data files.
 3. Move the generated `sce.rds` object into `tours/` and run `pbmc4k_app.R`.
 
-**Live demo:** https://http://marionilab.cruk.cam.ac.uk/iSEE_pbmc4k
+**Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_pbmc4k
 
 ## CyTOF
 
 The `data.R` script downloads a preprocesed version of the data set from [Bodenmiller et al (2012)](https://www.nature.com/articles/nbt.2317). 
 See the [`HDCytoData`](http://bioconductor.org/packages/HDCytoData/) package for more information about how the data was processed. 
 
-**Live demo:** https://http://marionilab.cruk.cam.ac.uk/iSEE_cytof
+**Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_cytof
