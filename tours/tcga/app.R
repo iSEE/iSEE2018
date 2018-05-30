@@ -99,7 +99,10 @@ heatmaFeatureNames <- rev(c(
   "SERPINB13","GBP6","VWA1","SLC1A1","HSPH1","KITLG","GPRC5A"))
 heatmaFeatureIndex <- match(heatmaFeatureNames, rownames(sce))
 hm$FeatName <- list(heatmaFeatureIndex)
+# scaling
 hm$CenterScale <- list(c("Centered", "Scaled"))
+hm$Lower <- -2
+hm$Upper <- 2
 # column data
 hm$ColDataBoxOpen <- TRUE
 hm$ColData <- list(c("her2_status_by_ihc"))
@@ -134,7 +137,7 @@ iSEE(
   sce, tour = tour,
   redDimArgs = rd, colDataArgs = cd, featAssayArgs = fe,
   rowStatArgs = NULL, rowDataArgs = NULL, heatMapArgs = hm,
-  redDimMax = 1, colDataMax = 1, featAssayMax = 1,
+  redDimMax = 1, colDataMax = 2, featAssayMax = 1,
   rowStatMax = 1, rowDataMax = 1, heatMapMax = 1,
   initialPanels = initialPanels,
   appTitle = "Exploring the TCGA RNA-seq data after re-processing")
