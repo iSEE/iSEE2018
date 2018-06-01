@@ -9,9 +9,38 @@ library(edgeR)
 
 ehub <- ExperimentHub::ExperimentHub()
 eh1 <- ehub[["EH1"]] # an ExpressionSet
+eh1044 <- ehub[["EH1044"]] # a SummarizedExperiment
+
 se1 <- as(eh1, "SummarizedExperiment")
-sce <- as(se1, "SingleCellExperiment")
-assayNames(sce) <- "counts"
+sce1 <- as(se1, "SingleCellExperiment")
+sce1044 <- as(eh1044, "SingleCellExperiment")
+
+# Prepare colData of identical dimensions prior to merging
+# In addition, add a "CNTL" colData field to differentiate control and cancer samples
+
+sce1044_colData <- DataFrame(matrix(
+  data = NA, nrow = ncol(sce1044), ncol = ncol(colData(sce1)),
+  dimnames = list(colnames(sce1044), colnames(colData(sce1)))
+  ))
+sce1044_colData$bcr_patient_barcode <- rownames(sce1044_colData)
+sce1044_colData$CancerType <- sce1044$type
+sce1044_colData$CNTL <- factor(TRUE, c(TRUE, FALSE))
+colData(sce1044) <- sce1044_colData
+
+sce1$CNTL <- factor(FALSE, c(TRUE, FALSE))
+
+# Keep only controls for the available cancer types
+sce1044 <- sce1044[,sce1044$CancerType %in% sce1$CancerType]
+sce1044$CancerType <- droplevels(sce1044$CancerType)
+
+# Rename identical "counts" assay names prior to merging
+
+assayNames(sce1) <- "counts"
+assayNames(sce1044) <- "counts"
+
+# Merge the two objects
+
+sce <- cbind(sce1, sce1044)
 
 # Add library size and CPM
 
