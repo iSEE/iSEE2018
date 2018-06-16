@@ -46,7 +46,7 @@ cd$SelectBoxOpen <- c(FALSE, TRUE)
 cd$SelectByPlot <- c("---", "Column data plot 1")
 cd$SelectEffect <- c("Transparent", "Restrict")
 
-# Panel 2: reduce dimensions (overview)
+# Panel 2: reduced dimensions (overview)
 # selection: tSNE
 # color: colData > CancerType
 # downsample for speed (tSNE): 100
@@ -66,6 +66,7 @@ rd$LegendPosition <- "Right"
 # select
 rd$SelectBoxOpen <- TRUE
 rd$SelectByPlot <- c("Column data plot 1")
+rd$SelectAlpha <- 0.05
 
 # Panel 3: feature assay (analysis)
 fe <- featAssayPlotDefaults(sce, 1)
