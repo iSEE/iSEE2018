@@ -23,6 +23,12 @@ It performs a small number of pre-processing steps (e.g., normalization, dimensi
 
 **Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_allen
 
+**Docker demo:**
+```
+docker pull kevinrue/isee_allen
+docker run -i --rm -p 1234:1234 kevinrue/isee_allen
+```
+
 ## TCGA
 
 The `data.R` script fetches the TCGA data set from the Bioconductor [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) in the form of an `ExpressionSet`.
