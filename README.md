@@ -40,6 +40,12 @@ Refer to the documentation of the [ExperimentHub](http://bioconductor.org/packag
 
 **Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_tcga
 
+**Docker demo:**
+```
+docker pull kevinrue/isee_tcga
+docker run -i --rm -p 1234:1234 kevinrue/isee_tcga
+```
+
 ## PBMC 4K
 
 This is somewhat more involved as the relevant data, while publicly available, need to be processed and analyzed.
@@ -52,9 +58,21 @@ Modify the `fname` variable according to the path to the unpacked PBMC data file
 
 **Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_pbmc4k
 
+**Docker demo:**
+```
+docker pull kevinrue/isee_pbmc4k
+docker run -i --rm -p 1234:1234 kevinrue/isee_pbmc4k
+```
+
 ## CyTOF
 
 The `data.R` script downloads a preprocesed version of the data set from [Bodenmiller et al (2012)](https://www.nature.com/articles/nbt.2317). 
 See the [`HDCytoData`](http://bioconductor.org/packages/HDCytoData/) package for more information about how the data was processed. 
 
 **Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_cytof
+
+**Docker demo:**
+```
+docker pull kevinrue/isee_cytof
+docker run -i --rm -p 1234:1234 kevinrue/isee_cytof
+```
