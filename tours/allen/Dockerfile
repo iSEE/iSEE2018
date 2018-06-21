@@ -2,7 +2,7 @@ FROM csoneson/isee:master
 
 MAINTAINER kevin.rue-albrecht@kennedy.ox.ac.uk
 LABEL authors="kevin.rue-albrecht@kennedy.ox.ac.uk" \
-    description="Docker image containing the iSEE package and data from Tasic et al. (2016)"
+    description="Docker image containing the iSEE package and data from Tasic et al., (2016)."
 
 # Set the working directory to /app
 WORKDIR /app
