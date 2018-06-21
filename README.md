@@ -21,7 +21,7 @@ To launch a tour, successively execute `data.R` and `app.R`.
 In addition, each tour is accompanied in this repository by two additional files illustrating the distribution of preconfigured iSEE applications in the form of [Docker](https://www.docker.com) containers, published on the [Docker Hub](https://hub.docker.com):
 
 - `Dockerfile`: command-line instructions for `docker build` to assemble the image.
-- `docker.R`: adaptation of `app.R` (above) executed by the image on startup that launches the preconfigured app on port `1234` of the container.
+- `docker.R`: wrapper for `app.R` (above) executed by the image on startup that launches the preconfigured app on port `1234` of the container.
 
 The port of a container can be published to any available port of the host machine using the `-p` option of `docker run`.
 For instance, `docker run -p 1234:5678` makes an app available at http://localhost:5678 in your web browser.
