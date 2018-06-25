@@ -18,13 +18,15 @@ To launch a tour, successively execute `data.R` and `app.R`.
 
 ## Docker containers
 
-In addition, each tour is accompanied in this repository by two additional files illustrating the distribution of preconfigured iSEE applications in the form of [Docker](https://www.docker.com) containers, published on the [Docker Hub](https://hub.docker.com):
+In addition, each tour is accompanied in this repository by two additional files illustrating the distribution of preconfigured iSEE applications in the form of [Docker](https://www.docker.com) images, published on the [Docker Hub](https://hub.docker.com):
 
 - `Dockerfile`: command-line instructions for `docker build` to assemble the image.
-- `docker.R`: wrapper for `app.R` (above) executed by the image on startup that launches the preconfigured app on port `1234` of the container.
+- `docker.R`: wrapper for `app.R` (see above) that is executed by the Docker container on startup; it launches the preconfigured app on port `1234` of the container.
 
-The port of a container can be published to any available port of the host machine using the `-p` option of `docker run`.
-For instance, `docker run -p 1234:5678` makes an app available at http://localhost:5678 in your web browser.
+The port `1234` of a container can be published to any available port of the host machine using the `-p` option of `docker run`.
+For instance, `docker run -p 1234:5678` makes the Shiny app available at http://localhost:5678 for the host machine.
+
+Please refer to the [Docker Documentation](https://docs.docker.com) for further details.
 
 ## Allen
 
