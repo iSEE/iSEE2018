@@ -16,12 +16,30 @@ Each tour is composed of three files:
 
 To launch a tour, successively execute `data.R` and `app.R`.
 
+## Docker containers
+
+In addition, each tour is accompanied in this repository by two additional files illustrating the distribution of preconfigured iSEE applications in the form of [Docker](https://www.docker.com) images, published on the [Docker Hub](https://hub.docker.com):
+
+- `Dockerfile`: command-line instructions for `docker build` to assemble the image.
+- `docker.R`: wrapper for `app.R` (see above) that is executed by the Docker container on startup; it launches the preconfigured app on port `1234` of the container.
+
+The port `1234` of a container can be published to any available port of the host machine using the `-p` option of `docker run`.
+For instance, `docker run -p 1234:5678` makes the Shiny app available at http://localhost:5678 for the host machine.
+
+Please refer to the [Docker Documentation](https://docs.docker.com) for further details.
+
 ## Allen
 
 The `data.R` script uses the Allen data subset in the the [_scRNAseq_](http://bioconductor.org/packages/release/data/experiment/html/scRNAseq.html) Bioconductor package.
 It performs a small number of pre-processing steps (e.g., normalization, dimensionality reduction) before saving a serialized `SingleCellExperiment` object to file.
 
 **Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_allen
+
+**Docker demo:**
+```
+docker pull kevinrue/isee_allen
+docker run -i --rm -p 1234:1234 kevinrue/isee_allen
+```
 
 ## TCGA
 
@@ -33,6 +51,12 @@ Subsequent runs of the script will launch the tour significantly faster, as they
 Refer to the documentation of the [ExperimentHub](http://bioconductor.org/packages/release/bioc/html/ExperimentHub.html) for further details.
 
 **Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_tcga
+
+**Docker demo:**
+```
+docker pull kevinrue/isee_tcga
+docker run -i --rm -p 1234:1234 kevinrue/isee_tcga
+```
 
 ## PBMC 4K
 
@@ -46,9 +70,21 @@ Modify the `fname` variable according to the path to the unpacked PBMC data file
 
 **Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_pbmc4k
 
+**Docker demo:**
+```
+docker pull kevinrue/isee_pbmc4k
+docker run -i --rm -p 1234:1234 kevinrue/isee_pbmc4k
+```
+
 ## CyTOF
 
 The `data.R` script downloads a preprocesed version of the data set from [Bodenmiller et al (2012)](https://www.nature.com/articles/nbt.2317). 
 See the [`HDCytoData`](http://bioconductor.org/packages/HDCytoData/) package for more information about how the data was processed. 
 
 **Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_cytof
+
+**Docker demo:**
+```
+docker pull kevinrue/isee_cytof
+docker run -i --rm -p 1234:1234 kevinrue/isee_cytof
+```
