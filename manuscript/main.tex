@@ -93,6 +93,7 @@ We demonstrate the capabilities of iSEE by applying it to a diverse range of rea
 The iSEE software package requires R version 3.5.0 or higher, along with packages from Bioconductor version 3.7 or higher.
 The interface is initialised with a single call to the \texttt{iSEE()} function, accepting a SummarizedExperiment object \citep{huber2015orchestrating} as input.
 Any analysis workflow that generates a SummarizedExperiment object is supported.
+A series of vignettes distributed with the package provide a detailed description of individual features.
 
 \section*{Motivation for using the SummarizedExperiment class}
 Each instance of the SummarizedExperiment class stores one or more matrices of experimental observations as ``assays'', where rows and columns represent genomic features and biological samples, respectively.
@@ -103,8 +104,7 @@ The flexibility of the SummarizedExperiment class is the driving factor behind i
 SummarizedExperiment objects are currently used in analysis pipelines for RNA sequencing \citep{love2014moderated}, methylation \citep{aryee2014minfi} and Hi-C data \citep{lun2016infrastructure}, amongst others.
 Package developers can also easily use the base SummarizedExperiment class to derive new bespoke classes for particular applications, such as the SingleCellExperiment class for single-cell 'omics data.
 By accepting SummarizedExperiment objects as input, iSEE immediately offers interactive visualisation for a variety of data modalities.
-This complements the state-of-the-art analysis workflows and methodologies already available in R/Bioconductor packages.
-A series of vignettes distributed with the package provide a detailed description of individual features. \\
+This complements the state-of-the-art analysis workflows and methodologies already available in R/Bioconductor packages. \\
 
 \section*{Interface implementation}
 
