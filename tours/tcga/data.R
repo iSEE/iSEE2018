@@ -4,6 +4,7 @@ library(scater)
 library(irlba)
 library(Rtsne)
 library(edgeR)
+library(HDF5Array)
 
 # Preprocessing
 
@@ -54,6 +55,12 @@ sce <- runPCA(sce, exprs_values = "log2CPM")
 irlba_out <- irlba(assay(sce, "log2CPM"))
 tsne_out <- Rtsne(irlba_out$v, pca = FALSE, perplexity = 50, verbose = TRUE)
 reducedDim(sce, "TSNE") <- tsne_out$Y
+
+# Saving the assay as HDF5-backed arrays
+
+h5filename <- "sce.hdf5"
+assay(sce, "counts") <- writeHDF5Array(assay(sce, "counts"), h5filename, "counts", chunkdim = c(100, 100), verbose=TRUE)
+assay(sce, "log2CPM") <- writeHDF5Array(assay(sce, "log2CPM"), h5filename, "log2CPM", chunkdim = c(100, 100), verbose=TRUE)
 
 # Saving the results.
 
