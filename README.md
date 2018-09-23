@@ -1,8 +1,7 @@
 # Interactive visualization with _iSEE_
 
-The [_iSEE_](https://github.com/csoneson/iSEE) package provides an interactive user interface for exploring data in objects derived from the `SummarizedExperiment` class.
-
-This repository contains the code required to construct the tours described in the _iSEE_ paper by [Rue-Albrecht _et al._](http://dx.doi.org/10.12688/f1000research.14966.1)
+The [_iSEE_](https://github.com/csoneson/iSEE) package provides an interactive user interface for exploring data stored in `SummarizedExperiment` objects.
+This repository contains the code required to construct the tours described in the _iSEE_ paper by [Rue-Albrecht _et al._ (2018).](http://dx.doi.org/10.12688/f1000research.14966.1)
 
 **Note:** these tours can be resumed from within their respective iSEE application instance, using the question mark icon in the top-right corner of the _Shiny_ application ( <img src=img/help.png height="20" width="20"> ).
 
