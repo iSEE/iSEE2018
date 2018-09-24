@@ -1,6 +1,7 @@
 suppressPackageStartupMessages({
     library(HDCytoData)
     library(SingleCellExperiment)
+    library(HDF5Array)
 })
 
 ## Load the data from the HDCytoData package
@@ -13,5 +14,10 @@ bcrxl <- SingleCellExperiment(
     colData = rowData(bcrxl),
     rowData = colData(bcrxl)
 )
+
+## Save the assay as HDF5-backed array
+h5filename <- "sce.hdf5"
+assay(bcrxl, "exprs") <- writeHDF5Array(assay(bcrxl, "exprs"), h5filename, "exprs", 
+                                        chunkdim = c(35, 100), verbose=TRUE)
 
 saveRDS(file="sce.rds", bcrxl)
