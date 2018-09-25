@@ -62,7 +62,7 @@ rd$ColorBy <- "Column data"
 rd$ColorByColData <- "CNTL"
 rd$Downsample <- TRUE
 rd$SampleRes <- 200
-rd$LegendPosition <- "Right"
+rd$LegendPosition <- "Bottom"
 # select
 rd$SelectBoxOpen <- TRUE
 rd$SelectByPlot <- c("Column data plot 1")
