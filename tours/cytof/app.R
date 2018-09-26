@@ -3,6 +3,9 @@ library(iSEE)
 tour_steps <- read.delim("tour.txt", header = TRUE, as.is = TRUE, sep = ";")
 bcrxl <- readRDS("sce.rds")
 
+# Reset the path to the HDF5 file relative to the container
+path(assay(bcrxl, "exprs")) <- "/app/sce.hdf5"
+
 ## Set up panels (6 feature assay plots)
 fd <- featAssayPlotDefaults(bcrxl, 6)
 

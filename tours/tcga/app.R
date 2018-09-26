@@ -1,6 +1,11 @@
 library(iSEE)
 
 sce <- readRDS("sce.rds")
+
+# Reset the path to the HDF5 file relative to the container
+path(assay(sce, "counts")) <- "/app/sce.hdf5"
+path(assay(sce, "log2CPM")) <- "/app/sce.hdf5"
+
 tour <- read.delim("tour.txt", sep=";", stringsAsFactors = FALSE, row.names = NULL)
 
 # Panel 1: colData (phenotype selection)
