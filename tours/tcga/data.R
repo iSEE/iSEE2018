@@ -68,12 +68,4 @@ reducedDim(sce, "TSNE") <- tsne_out$Y
 h5filename <- "sce.h5"
 assay(sce, "counts") <- writeHDF5Array(assay(sce, "counts"), h5filename, "counts", chunkdim = c(100, 100), verbose=TRUE)
 assay(sce, "log2CPM") <- writeHDF5Array(assay(sce, "log2CPM"), h5filename, "log2CPM", chunkdim = c(100, 100), verbose=TRUE)
-
-# Reset the path to the HDF5 file relative to the current location
-
-path(assay(sce, "counts")) <- h5filename
-path(assay(sce, "log2CPM")) <- h5filename
-
-# Saving the results.
-
 saveRDS(file="sce.rds", sce)

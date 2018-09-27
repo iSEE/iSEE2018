@@ -2,6 +2,8 @@ library(iSEE)
 
 sce <- readRDS("sce.rds")
 tour <- read.delim("tour.txt", sep=";", stringsAsFactors = FALSE, row.names = NULL)
+path(assay(sce, "counts")) <- "sce.h5" 
+path(assay(sce, "log2CPM")) <- "sce.h5"
 
 #######################################################
 # Panel 1: colData (phenotype selection)
