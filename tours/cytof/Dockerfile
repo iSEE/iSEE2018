@@ -6,15 +6,15 @@ LABEL authors="kevin.rue-albrecht@kennedy.ox.ac.uk" \
 
 ENV rootdir /app
 
-# Set the working directory to /app
-WORKDIR $rootdir
-
 # Copy the current directory contents into the container at /app
 ADD sce.rds $rootdir
-ADD sce.hdf5 $rootdir
+ADD sce.h5 $rootdir
 ADD tour.txt $rootdir
 ADD docker.R $rootdir
 ADD app.R $rootdir
+
+# Set the working directory to /app
+WORKDIR $rootdir
 
 # Make port 1234 available to the world outside this container
 EXPOSE 1234

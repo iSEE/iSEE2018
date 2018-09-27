@@ -58,7 +58,7 @@ reducedDim(sce, "TSNE") <- tsne_out$Y
 
 # Saving the assay as HDF5-backed arrays
 
-h5filename <- "sce.hdf5"
+h5filename <- "sce.h5"
 assay(sce, "counts") <- writeHDF5Array(assay(sce, "counts"), h5filename, "counts", chunkdim = c(100, 100), verbose=TRUE)
 assay(sce, "log2CPM") <- writeHDF5Array(assay(sce, "log2CPM"), h5filename, "log2CPM", chunkdim = c(100, 100), verbose=TRUE)
 
