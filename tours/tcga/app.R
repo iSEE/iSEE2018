@@ -1,24 +1,22 @@
 library(iSEE)
 
 sce <- readRDS("sce.rds")
-
-# Reset the path to the HDF5 file relative to the container
-path(assay(sce, "counts")) <- file.path(getwd(), "sce.h5")
-path(assay(sce, "log2CPM")) <- file.path(getwd(), "sce.h5")
-
 tour <- read.delim("tour.txt", sep=";", stringsAsFactors = FALSE, row.names = NULL)
 
+#######################################################
 # Panel 1: colData (phenotype selection)
 # Y = CancerType
 # X = Gender
 # select breast cancer female patients
 
 cd <- colDataPlotDefaults(sce, 2)
+
 # data
 cd$DataBoxOpen <- c(TRUE, FALSE)
 cd$YAxis <-  c("CancerType", "her2_status_by_ihc")
 cd$XAxis <- c("Column data", "Column data")
 cd$XAxisColData <- c("CNTL","CNTL")
+
 # visual
 cd$VisualBoxOpen <- c(TRUE, FALSE)
 cd$ColorBy <- c("Column data", "None")
@@ -31,6 +29,7 @@ cd$PointAlpha <- c(0.25, 1)
 cd$Downsample <- TRUE
 cd$SampleRes <- 200
 cd$LegendPosition <- c("Right", "Bottom")
+
 # point selection
 cd$BrushData <- list(
   # (female BRCA patients)
@@ -51,15 +50,19 @@ cd$SelectBoxOpen <- c(FALSE, TRUE)
 cd$SelectByPlot <- c("---", "Column data plot 1")
 cd$SelectEffect <- c("Transparent", "Restrict")
 
+#######################################################
 # Panel 2: reduced dimensions (overview)
 # selection: tSNE
 # color: colData > CancerType
 # downsample for speed (tSNE): 100
 # panel width: 5
 # legend position: right
+
 rd <- redDimPlotDefaults(sce, 1)
+
 # data
 rd$Type <- "TSNE"
+
 # visual
 rd$VisualBoxOpen <- TRUE
 rd$VisualChoices[[1]] <- c("Color", "Points", "Other")
@@ -68,30 +71,40 @@ rd$ColorByColData <- "CNTL"
 rd$Downsample <- TRUE
 rd$SampleRes <- 200
 rd$LegendPosition <- "Bottom"
+
 # select
 rd$SelectBoxOpen <- TRUE
 rd$SelectByPlot <- c("Column data plot 1")
 rd$SelectAlpha <- 0.05
 
+#######################################################
 # Panel 3: feature assay (analysis)
+
 fe <- featAssayPlotDefaults(sce, 1)
+
 # data
 fe$DataBoxOpen <- TRUE
 fe$Assay <- 2
 fe$XAxis <- "Column data"
 fe$XAxisColData <- "CNTL"
 fe$YAxisFeatName <- match("ERBB2", rownames(sce))
+
 # visual
 fe$VisualBoxOpen <- TRUE
 fe$VisualChoices[[1]] <- c("Points")
 fe$Downsample <- TRUE
 fe$SampleRes <- 200
+
 # select
 fe$SelectBoxOpen <- TRUE
 fe$SelectByPlot <- c("Column data plot 1")
 fe$SelectEffect <- "Restrict"
 
+#######################################################
+# Panel 4: heatmap
+
 hm <-  heatMapPlotDefaults(sce, 1)
+
 # feature data
 hm$FeatNameBoxOpen <- TRUE
 hm$Assay <- 2
@@ -109,14 +122,17 @@ hm$FeatName <- list(heatmaFeatureIndex)
 hm$CenterScale <- list(c("Centered", "Scaled"))
 hm$Lower <- -2
 hm$Upper <- 2
+
 # column data
 hm$ColDataBoxOpen <- TRUE
 hm$ColData <- list(c("her2_status_by_ihc"))
+
 # select
 hm$SelectBoxOpen <- TRUE
 hm$SelectByPlot <- c("Column data plot 2")
 hm$SelectEffect <- "Restrict"
 
+#######################################################
 # Panel setup
 
 initialPanels = DataFrame(
@@ -138,6 +154,9 @@ initialPanels = DataFrame(
     ),
     Height = c(rep(500, 3), rep(600, 3))
   )
+
+#######################################################
+# App initialization
 
 iSEE(
   sce, tour = tour,
