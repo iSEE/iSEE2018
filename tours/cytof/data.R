@@ -16,8 +16,8 @@ bcrxl <- SingleCellExperiment(
 )
 
 ## Save the assay as HDF5-backed array
-h5filename <- "sce.hdf5"
-assay(bcrxl, "exprs") <- writeHDF5Array(assay(bcrxl, "exprs"), h5filename, "exprs", 
-                                        chunkdim = c(35, 100), verbose=TRUE)
+h5filename <- "sce.h5"
+assay(bcrxl, "exprs") <- writeHDF5Array(assay(bcrxl, "exprs"), h5filename, "exprs",
+                                        chunkdim = c(1, 2500), verbose=TRUE)
 
 saveRDS(file="sce.rds", bcrxl)
