@@ -31,7 +31,7 @@ Please refer to the [Docker Documentation](https://docs.docker.com) for further 
 
 ## Allen
 
-The `data.R` script uses the Allen data subset in the the [_scRNAseq_](http://bioconductor.org/packages/release/data/experiment/html/scRNAseq.html) Bioconductor package.
+The `data.R` script uses the Allen data subset in the [_scRNAseq_](http://bioconductor.org/packages/release/data/experiment/html/scRNAseq.html) Bioconductor package.
 It performs a small number of pre-processing steps (e.g., normalization, dimensionality reduction) before saving a serialized `SingleCellExperiment` object to file.
 
 **Live demo:** https://marionilab.cruk.cam.ac.uk/iSEE_allen
